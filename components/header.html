@@ -1,0 +1,55 @@
+<div class="nav__container container">
+  <a href="index.html" class="nav__logo">UpGreat World</a>
+
+  <nav class="nav__menu">
+    <a href="index.html" class="nav__link">Home</a>
+    <div class="nav__dropdown">
+      <a href="services.html" class="nav__link">Services</a>
+      <div class="nav__dropdown-content">
+        <a href="outdoor-advertising.html">Outdoor Advertising</a>
+        <a href="transit-advertising.html">Transit Advertising</a>
+        <a href="btl-marketing.html">BTL Marketing</a>
+        <a href="hyperlocal-marketing.html">Hyperlocal</a>
+        <a href="digital-ooh.html">Digital OOH</a>
+        <a href="event-exhibition.html">Event & Exhibition</a>
+        <a href="retail-branding.html">Retail Branding</a>
+        <hr style="border: none; border-top: 1px solid var(--outline-variant); margin: var(--space-2) 0;">
+        <a href="services.html" style="font-weight: 600;">View All Services →</a>
+      </div>
+    </div>
+    <a href="case-studies.html" class="nav__link">Case Studies</a>
+    <a href="cities.html" class="nav__link">Cities</a>
+    <a href="about.html" class="nav__link">About</a>
+    <a href="contact.html" class="nav__link">Contact</a>
+  </nav>
+
+  <div class="nav__actions">
+    <a href="contact.html" class="btn btn--primary btn--sm">Get Free Plan</a>
+    <button class="nav__mobile-toggle">
+      <span class="material-symbols-outlined">menu</span>
+    </button>
+  </div>
+</div>
+
+<style>
+  /* Header specific styles to handle mobile menu visibility if not in global CSS */
+  @media (max-width: 767px) {
+    .nav__menu {
+      position: fixed;
+      top: var(--header-height);
+      left: 0;
+      width: 100%;
+      background: var(--surface-container-lowest);
+      flex-direction: column;
+      padding: var(--space-8);
+      gap: var(--space-4);
+      display: none;
+      /* Controlled by JS toggle */
+      box-shadow: var(--shadow-ambient);
+    }
+
+    .nav__menu--open {
+      display: flex;
+    }
+  }
+</style>
