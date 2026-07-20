@@ -1,0 +1,23 @@
+127.0.0.1 - - [20/Jul/2026 14:19:36] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jul/2026 14:19:36] "GET /script.js HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jul/2026 14:19:36] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jul/2026 14:19:37] code 404, message File not found
+127.0.0.1 - - [20/Jul/2026 14:19:37] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [20/Jul/2026 14:20:49] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jul/2026 14:20:56] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jul/2026 14:21:09] "GET /services.html HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jul/2026 14:21:30] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jul/2026 14:21:30] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jul/2026 14:21:38] "GET /service-ooh.html HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jul/2026 14:22:07] "GET / HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jul/2026 14:22:07] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jul/2026 14:22:12] "GET /service-experiential.html HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jul/2026 14:24:04] "GET /style.css HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jul/2026 14:25:08] "GET /service-ooh.html HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jul/2026 14:25:08] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jul/2026 14:26:02] "GET /service-ooh.html HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jul/2026 14:26:10] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jul/2026 14:26:41] "GET /about.html HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jul/2026 14:27:36] "GET /service-ooh.html HTTP/1.1" 200 -
+127.0.0.1 - - [20/Jul/2026 14:27:36] "GET /style.css HTTP/1.1" 304 -
+127.0.0.1 - - [20/Jul/2026 14:27:36] "GET /script.js?v=2 HTTP/1.1" 200 -
