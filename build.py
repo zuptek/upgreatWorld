@@ -45,6 +45,12 @@ def generate_page(filename, title, content, description=""):
             page_header
         )
         
+    # Inject canonical link tag
+    page_header = page_header.replace(
+        '<link rel="canonical" href="https://upgreatworld.com/">',
+        f'<link rel="canonical" href="https://upgreatworld.com/{filename}">'
+    )
+        
     html = page_header + '\n' + content + '\n' + footer
     write_file(filename, html)
     print(f"Generated {filename}")
@@ -320,5 +326,82 @@ index_content = index_content.replace('href="#services"', 'href="services.html"'
 index_content = index_content.replace('href="#approach"', 'href="about.html"')
 index_content = index_content.replace('href="#contact"', 'href="contact.html"')
 write_file('index.html', index_content)
+
+# Generate sitemap.html
+sitemap_html_content = """
+<section class="inner-hero">
+  <div class="wrap">
+    <span class="sec-eyebrow reveal">Navigation Portal</span>
+    <h1 class="reveal" data-d="1">Website Sitemap</h1>
+    <p class="reveal" data-d="2">A comprehensive directory of all services, campaign formats, coverage cities, and institutional pages of UpGreat World.</p>
+  </div>
+</section>
+<section class="inner-content wrap reveal" data-d="3">
+  <div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap:3rem; margin-bottom:4rem;">
+    <div>
+      <h3 style="border-bottom: 2px solid var(--line); padding-bottom: 12px; margin-bottom: 20px;">Corporate Portal</h3>
+      <a href="index.html" style="display:block; margin-bottom:12px; font-size:1.1rem; color:var(--ink-2); text-decoration:none;">Home Page</a>
+      <a href="about.html" style="display:block; margin-bottom:12px; font-size:1.1rem; color:var(--ink-2); text-decoration:none;">About UpGreat World</a>
+      <a href="services.html" style="display:block; margin-bottom:12px; font-size:1.1rem; color:var(--ink-2); text-decoration:none;">All Services Overview</a>
+      <a href="case-studies.html" style="display:block; margin-bottom:12px; font-size:1.1rem; color:var(--ink-2); text-decoration:none;">Success Stories &amp; Case Studies</a>
+      <a href="cities.html" style="display:block; margin-bottom:12px; font-size:1.1rem; color:var(--ink-2); text-decoration:none;">National Footprint &amp; Cities</a>
+      <a href="campaign.html" style="display:block; margin-bottom:12px; font-size:1.1rem; color:var(--ink-2); text-decoration:none;">Plan a Campaign</a>
+      <a href="contact.html" style="display:block; margin-bottom:12px; font-size:1.1rem; color:var(--ink-2); text-decoration:none;">Contact Us</a>
+    </div>
+    <div>
+      <h3 style="border-bottom: 2px solid var(--line); padding-bottom: 12px; margin-bottom: 20px;">Media Services</h3>
+      <a href="outdoor-advertising.html" style="display:block; margin-bottom:12px; font-size:1.1rem; color:var(--ink-2); text-decoration:none;">Outdoor Hoardings &amp; Billboards</a>
+      <a href="transit-advertising.html" style="display:block; margin-bottom:12px; font-size:1.1rem; color:var(--ink-2); text-decoration:none;">Transit &amp; Vehicle Branding</a>
+      <a href="btl-marketing.html" style="display:block; margin-bottom:12px; font-size:1.1rem; color:var(--ink-2); text-decoration:none;">BTL Marketing &amp; Ground Activations</a>
+      <a href="digital-ooh.html" style="display:block; margin-bottom:12px; font-size:1.1rem; color:var(--ink-2); text-decoration:none;">Digital Out-of-Home (DOOH)</a>
+      <a href="hyperlocal-marketing.html" style="display:block; margin-bottom:12px; font-size:1.1rem; color:var(--ink-2); text-decoration:none;">Hyperlocal Targeted Marketing</a>
+      <a href="mall-multiplex-advertising.html" style="display:block; margin-bottom:12px; font-size:1.1rem; color:var(--ink-2); text-decoration:none;">Mall &amp; Multiplex Branding</a>
+    </div>
+    <div>
+      <h3 style="border-bottom: 2px solid var(--line); padding-bottom: 12px; margin-bottom: 20px;">Production &amp; Strategy</h3>
+      <a href="event-exhibition.html" style="display:block; margin-bottom:12px; font-size:1.1rem; color:var(--ink-2); text-decoration:none;">Events &amp; Exhibitions Management</a>
+      <a href="experiential-marketing.html" style="display:block; margin-bottom:12px; font-size:1.1rem; color:var(--ink-2); text-decoration:none;">Experiential Ads &amp; Brand Activation</a>
+      <a href="branding-production.html" style="display:block; margin-bottom:12px; font-size:1.1rem; color:var(--ink-2); text-decoration:none;">Branding Fabrication &amp; Production</a>
+      <a href="corporate-office-branding.html" style="display:block; margin-bottom:12px; font-size:1.1rem; color:var(--ink-2); text-decoration:none;">Corporate Signage &amp; Office Branding</a>
+      <a href="retail-branding.html" style="display:block; margin-bottom:12px; font-size:1.1rem; color:var(--ink-2); text-decoration:none;">Retail Facades &amp; POS Branding</a>
+      <a href="political-advertising.html" style="display:block; margin-bottom:12px; font-size:1.1rem; color:var(--ink-2); text-decoration:none;">Political Visibility Campaigns</a>
+      <a href="print-advertising.html" style="display:block; margin-bottom:12px; font-size:1.1rem; color:var(--ink-2); text-decoration:none;">Print Media &amp; Large Format Printing</a>
+      <a href="media-planning.html" style="display:block; margin-bottom:12px; font-size:1.1rem; color:var(--ink-2); text-decoration:none;">Media Strategy &amp; Campaign Planning</a>
+    </div>
+  </div>
+</section>
+"""
+generate_page('sitemap.html', 'HTML Sitemap | Directory of Pages | UpGreat World', sitemap_html_content, "Explore the sitemap directory of UpGreat World for easy navigation of all our outdoor advertising, transit, and BTL marketing pages.")
+
+# Generate sitemap.xml
+xml_pages = [
+    ('', 1.0, 'daily'),
+    ('about.html', 0.8, 'monthly'),
+    ('services.html', 0.8, 'weekly'),
+    ('case-studies.html', 0.8, 'weekly'),
+    ('cities.html', 0.8, 'weekly'),
+    ('campaign.html', 0.8, 'monthly'),
+    ('contact.html', 0.8, 'monthly'),
+    ('sitemap.html', 0.5, 'monthly'),
+]
+
+# Load dynamic pages
+if os.path.exists('pages_data.json'):
+    with open('pages_data.json', 'r', encoding='utf-8') as f:
+        data = json.load(f)
+        for page in data.keys():
+            xml_pages.append((page, 0.6, 'weekly'))
+
+xml_content = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+for page, priority, freq in xml_pages:
+    url = f"https://upgreatworld.com/{page}"
+    xml_content += f"""  <url>
+    <loc>{url}</loc>
+    <changefreq>{freq}</changefreq>
+    <priority>{priority:.1f}</priority>
+  </url>\n"""
+xml_content += '</urlset>\n'
+write_file('sitemap.xml', xml_content)
+print("Generated sitemap.xml")
 
 print("Site generation complete.")
