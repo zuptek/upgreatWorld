@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Plan Your Campaign | Horizon AD</title>
+<!-- Google Fonts: Manrope & Inter -->
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "on-tertiary": "#ffffff",
+              "on-primary-container": "#188ace",
+              "error-container": "#ffdad6",
+              "on-secondary-fixed": "#0d1c2f",
+              "primary-container": "#001d31",
+              "inverse-primary": "#93ccff",
+              "secondary-fixed": "#d5e3fd",
+              "surface-variant": "#e0e3e5",
+              "surface-bright": "#f7f9fb",
+              "on-primary-fixed-variant": "#004b73",
+              "background": "#f7f9fb",
+              "on-tertiary-container": "#0c9488",
+              "surface-container-highest": "#e0e3e5",
+              "primary-fixed": "#cce5ff",
+              "on-background": "#191c1e",
+              "surface-container-high": "#e6e8ea",
+              "on-tertiary-fixed-variant": "#005049",
+              "on-tertiary-fixed": "#00201d",
+              "secondary-container": "#d5e3fd",
+              "on-error": "#ffffff",
+              "inverse-surface": "#2d3133",
+              "surface-container": "#eceef0",
+              "on-secondary-container": "#57657b",
+              "surface-dim": "#d8dadc",
+              "on-error-container": "#93000a",
+              "on-primary": "#ffffff",
+              "surface-container-low": "#f2f4f6",
+              "surface-tint": "#006398",
+              "primary": "#000000",
+              "secondary-fixed-dim": "#b9c7e0",
+              "on-secondary-fixed-variant": "#3a485c",
+              "surface": "#f7f9fb",
+              "outline": "#76777d",
+              "tertiary-fixed": "#89f5e7",
+              "tertiary": "#000000",
+              "surface-container-lowest": "#ffffff",
+              "on-primary-fixed": "#001d31",
+              "on-surface": "#191c1e",
+              "error": "#ba1a1a",
+              "outline-variant": "#c6c6cd",
+              "tertiary-container": "#00201d",
+              "primary-fixed-dim": "#93ccff",
+              "on-surface-variant": "#45464d",
+              "on-secondary": "#ffffff",
+              "tertiary-fixed-dim": "#6bd8cb",
+              "secondary": "#515f74",
+              "inverse-on-surface": "#eff1f3"
+            },
+            fontFamily: {
+              "headline": ["Manrope"],
+              "body": ["Inter"],
+              "label": ["Inter"]
+            },
+            borderRadius: {"DEFAULT": "0.125rem", "lg": "0.25rem", "xl": "0.5rem", "full": "0.75rem"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        h1, h2, h3, .font-headline { font-family: 'Manrope', sans-serif; }
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-slate-50/80 dark:bg-slate-950/80 backdrop-blur-md flex justify-between items-center px-8 py-4 max-w-full">
+<div class="text-xl font-bold tracking-tighter text-slate-900 dark:text-slate-50">Horizon AD</div>
+<nav class="hidden md:flex items-center space-x-8 font-manrope text-sm font-medium tracking-tight">
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="#">Inventory</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="#">Solutions</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="#">Case Studies</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-200 transition-colors" href="#">About</a>
+</nav>
+<button class="bg-primary text-on-primary px-5 py-2 rounded-xl text-sm font-bold tracking-tight active:scale-95 duration-200 hover:opacity-80 transition-opacity">Plan Campaign</button>
+</header>
+<main class="flex-grow pt-24 pb-12 px-6 md:px-12 max-w-7xl mx-auto w-full">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+<!-- Left Column: Planning Form -->
+<div class="lg:col-span-7">
+<div class="mb-10">
+<h1 class="text-4xl md:text-5xl font-extrabold tracking-tighter text-on-surface mb-4">Plan Your Outdoor Campaign</h1>
+<p class="text-on-surface-variant text-lg max-w-xl">Tell us about your brand goals. Our precision planning engine will curate the most impactful outdoor assets for your next big launch.</p>
+</div>
+<div class="bg-surface-container-lowest p-8 md:p-10 rounded-xl shadow-[0px_20px_40px_rgba(25,28,30,0.04)]">
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Name</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary-container p-3 text-sm" placeholder="John Doe" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Company Name</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary-container p-3 text-sm" placeholder="UpGreat World" type="text"/>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">City</label>
+<select class="w-full bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary-container p-3 text-sm appearance-none">
+<option>Delhi</option>
+<option>Mumbai</option>
+<option>Bangalore</option>
+<option>Hyderabad</option>
+<option>Chennai</option>
+<option>Pune</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Budget</label>
+<select class="w-full bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary-container p-3 text-sm appearance-none">
+<option>&lt; 1L</option>
+<option>1L - 5L</option>
+<option>5L - 20L</option>
+<option>20L+</option>
+</select>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Campaign Duration</label>
+<input class="w-full bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary-container p-3 text-sm" placeholder="e.g. 30 Days" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-xs font-bold uppercase tracking-widest text-on-surface-variant">Objective</label>
+<textarea class="w-full bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary-container p-3 text-sm resize-none" placeholder="Describe your campaign goals..." rows="4"></textarea>
+</div>
+<button class="w-full bg-gradient-to-br from-primary to-primary-container text-on-primary py-4 rounded-xl font-bold text-base tracking-tight hover:opacity-90 active:scale-[0.98] transition-all" type="submit">
+                            Get Proposal
+                        </button>
+</form>
+</div>
+</div>
+<!-- Right Column: Persuasive Side Panel -->
+<div class="lg:col-span-5 lg:sticky lg:top-32">
+<div class="bg-surface-container-low p-8 md:p-12 rounded-xl space-y-10 border border-outline-variant/10">
+<div>
+<h2 class="text-3xl font-bold tracking-tight text-on-surface mb-2">Why UpGreat World?</h2>
+<div class="h-1 w-12 bg-on-tertiary-container rounded-full"></div>
+</div>
+<div class="space-y-8">
+<div class="flex gap-4">
+<div class="bg-surface-container-lowest w-12 h-12 flex items-center justify-center rounded-xl shadow-sm text-on-tertiary-container">
+<span class="material-symbols-outlined" data-icon="insights">insights</span>
+</div>
+<div>
+<h3 class="font-bold text-on-surface">Expert planning</h3>
+<p class="text-sm text-on-surface-variant mt-1 leading-relaxed">Data-driven insights for maximum ROI across the most premium urban touchpoints.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container-lowest w-12 h-12 flex items-center justify-center rounded-xl shadow-sm text-on-tertiary-container">
+<span class="material-symbols-outlined" data-icon="bolt">bolt</span>
+</div>
+<div>
+<h3 class="font-bold text-on-surface">Fast execution</h3>
+<p class="text-sm text-on-surface-variant mt-1 leading-relaxed">Agile systems allow us to launch your campaigns in as little as 48 hours.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="bg-surface-container-lowest w-12 h-12 flex items-center justify-center rounded-xl shadow-sm text-on-tertiary-container">
+<span class="material-symbols-outlined" data-icon="sell">sell</span>
+</div>
+<div>
+<h3 class="font-bold text-on-surface">Best pricing</h3>
+<p class="text-sm text-on-surface-variant mt-1 leading-relaxed">Direct asset ownership means you get highly competitive rates without middleman costs.</p>
+</div>
+</div>
+</div>
+<div class="pt-6 border-t border-outline-variant/20">
+<div class="flex items-center gap-3 bg-on-tertiary-container/5 p-4 rounded-lg">
+<span class="material-symbols-outlined text-on-tertiary-container" data-icon="verified" style="font-variation-settings: 'FILL' 1;">verified</span>
+<span class="text-sm font-bold tracking-tight text-on-tertiary-container">Trusted by 500+ Brands</span>
+</div>
+</div>
+<!-- Decorative Urban Element -->
+<div class="relative h-48 w-full rounded-xl overflow-hidden group">
+<img alt="Modern urban skyline with billboards" class="w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700" data-alt="Black and white modern city skyline with large advertising displays" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDQDKbp4qocw4qSf7fiWywvyTgaNwzyfBvUgB5gGtwFqfqKJgZMwImUwHsqd-rzlEe9HfwNdFFffBi-DYF_A0AeXFb5MZ3DQVcJfkgVP2g_wCeCrVFLKa7LIl1yKuhuggURmSaPIOfQmaaEv1_E4SneX71aeREgwJVBLUnMRJ24SG-6qaXa6bbC0NK48RiRm5dPBGjtXWgzZSJnCxL4RnnrmSevccSMYfc28vxSx-dRaTazRiYUybZKiXsh51RI_JCJmYoS22UFQmVe"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface-container-low to-transparent"></div>
+</div>
+</div>
+</div>
+</div>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-slate-200 dark:border-slate-800 bg-slate-50 dark:bg-slate-950 flex flex-col md:flex-row justify-between items-center px-8 py-12 mt-auto">
+<div class="font-inter text-xs tracking-wide text-slate-400 dark:text-slate-500 mb-4 md:mb-0">
+            © 2024 Horizon Outdoor Advertising. High Trust through High Precision.
+        </div>
+<div class="flex gap-6 font-inter text-xs tracking-wide">
+<a class="text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition-colors" href="#">Privacy Policy</a>
+<a class="text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition-colors" href="#">Terms of Service</a>
+<a class="text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition-colors" href="#">Cookie Settings</a>
+<a class="text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition-colors" href="#">Contact Us</a>
+</div>
+</footer>
+</body></html>
