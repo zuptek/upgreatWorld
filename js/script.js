@@ -70,7 +70,7 @@ function injectFABs() {
     const fabContainer = document.createElement('div');
     fabContainer.className = 'fab-container';
     fabContainer.innerHTML = `
-        <a href="https://wa.me/919088655513" target="_blank" class="fab-button fab-button--whatsapp" data-tooltip="Chat on WhatsApp">
+        <a href="https://wa.me/919891296555" target="_blank" class="fab-button fab-button--whatsapp" data-tooltip="Chat on WhatsApp">
             <span class="material-symbols-outlined">chat</span>
         </a>
         <button class="fab-button fab-button--top" data-tooltip="Back to Top" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">

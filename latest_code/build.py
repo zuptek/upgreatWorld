@@ -202,9 +202,11 @@ contact_content = """
       <h3 style="color:#fff;">Contact Details</h3>
       <p style="color:rgba(255,255,255,0.8);">Reach out to our pan-India team directly.</p>
       <br>
-      <p style="color:#fff;"><strong>Email:</strong><br>hello@upgreatworld.com</p>
-      <p style="color:#fff; margin-top: 16px;"><strong>Phone:</strong><br>+91 00000 00000</p>
-      <p style="color:#fff; margin-top: 16px;"><strong>Headquarters:</strong><br>Delhi NCR, India</p>
+      <p style="color:#fff;"><strong>Email:</strong><br><a href="mailto:connect@upgreatworld.com">connect@upgreatworld.com</a></p>
+      <p style="color:#fff; margin-top: 16px;"><strong>Headquarters:</strong><br>Gurugram, Haryana, India</p>
+      <p style="color:#fff; margin-top: 16px;"><strong>Gurugram Office:</strong><br>Welldone Tech Park, Sector 48, Gurugram – 122018<br>Phone: <a href="tel:+919891296555">+91 98912 96555</a></p>
+      <p style="color:#fff; margin-top: 16px;"><strong>Mumbai Office:</strong><br>128, Master Mind, Aarey Colony, Goregaon (E), Mumbai, Maharashtra 400065<br>Phone: <a href="tel:+919355666604">+91 93556 66604</a></p>
+      <p style="color:#fff; margin-top: 16px;"><strong>WhatsApp:</strong><br><a href="https://wa.me/919891296555" target="_blank" rel="noopener">+91 98912 96555</a></p>
     </div>
   </div>
 </section>
