@@ -1,64 +1,202 @@
-import os
+#!/usr/bin/env python3
+"""
+UpGreat World — static site builder.
+
+USAGE
+-----
+  python3 build.py            Sync shared components into every page (safe, repeatable).
+  python3 build.py --content  ALSO rebuild page bodies from pages_data.json
+                              (overwrites hand-edits inside page content).
+
+SHARED COMPONENTS (single source of truth — edit here, never inside the pages)
+  components/header.html        announcement bar + navigation header
+  components/footer.html        footer (all columns, offices, copyright)
+  components/cta-band.html      pre-footer "Enquire now" CTA strip
+  components/whatsapp-fab.html  floating WhatsApp CTA button (bottom right)
+  components/scripts.html       footer script tags
+
+After editing any component, run:  python3 build.py
+"""
+
+import glob
 import json
+import os
 import re
+import sys
+
+# --------------------------------------------------------------------------
+# Components
+# --------------------------------------------------------------------------
+
+COMPONENTS = {
+    'header': 'components/header.html',
+    'footer': 'components/footer.html',
+    'cta': 'components/cta-band.html',
+    'fab': 'components/whatsapp-fab.html',
+    'scripts': 'components/scripts.html',
+}
+
+CSS_VERSION = 4   # bump to force browsers to pick up style.css changes
+JS_VERSION = 3    # bump to force browsers to pick up script.js changes
+
+HEADER_RE = re.compile(r'<div class="annc"[\s\S]*?</header>')
+HEADER_FALLBACK_RE = re.compile(r'<header id="hdr">[\s\S]*?</header>')
+FOOTER_RE = re.compile(r'<!-- FOOTER -->[\s\S]*?</footer>')
+CTA_RE = re.compile(r'<!-- CTA-BAND -->[\s\S]*?<!-- /CTA-BAND -->')
+FAB_RE = re.compile(r'<!-- WHATSAPP-FAB -->[\s\S]*?<!-- /WHATSAPP-FAB -->')
+SCRIPT_RE = re.compile(r'<script src="script\.js[^"]*"[^>]*>\s*</script>')
+CSS_RE = re.compile(r'href="style\.css(?:\?v=\d+)?"')
+
+FOOTER_MARKER = '<!-- FOOTER -->'
+
+# Pages that already carry their own enquiry CTA, so the shared band is omitted.
+CTA_SKIP = {'index.html', 'contact.html'}
+
 
 def read_file(path):
     with open(path, 'r', encoding='utf-8') as f:
         return f.read()
 
+
 def write_file(path, content):
     with open(path, 'w', encoding='utf-8') as f:
         f.write(content)
 
-# 1. Read index.html to extract the new header and footer
-index_content = read_file('index.html')
 
-# Extract header and footer
-header_split = index_content.split('</header>')
-header = header_split[0] + '</header>'
+def load_components():
+    missing = [p for p in COMPONENTS.values() if not os.path.exists(p)]
+    if missing:
+        sys.exit('Missing component file(s): ' + ', '.join(missing))
+    return {k: read_file(v).strip('\n') for k, v in COMPONENTS.items()}
 
-footer_split = index_content.split('<!-- FOOTER -->')
-footer = '<!-- FOOTER -->' + footer_split[1]
 
-# Modify navigation links in header
-header = header.replace('href="#services"', 'href="services.html"')
-header = header.replace('href="#approach"', 'href="about.html"')
-header = header.replace('href="#cities"', 'href="index.html#cities"')
-header = header.replace('href="#contact"', 'href="contact.html"')
+def comps_scripts():
+    return read_file(COMPONENTS['scripts']).strip('\n')
 
-# Modify footer links
-footer = footer.replace('href="#services"', 'href="services.html"')
-footer = footer.replace('href="#approach"', 'href="about.html"')
-footer = footer.replace('href="#cities"', 'href="index.html#cities"')
-footer = footer.replace('href="#contact"', 'href="contact.html"')
 
-def generate_page(filename, title, content, description=""):
-    # Adjust title in header
-    page_header = header.replace('<title>Outdoor, Transit & Experiential Advertising Agency | UpGreat World</title>', f'<title>{title}</title>')
-    page_header = page_header.replace('<title>UpGreat World — Be unmissable in the real world</title>', f'<title>{title}</title>')
-    
-    # Inject meta description if provided
+def root_pages():
+    """Every hand-editable page at the site root (latest_code/ is a legacy copy)."""
+    return sorted(p for p in glob.glob('*.html'))
+
+
+# --------------------------------------------------------------------------
+# Component sync (default mode)
+# --------------------------------------------------------------------------
+
+def sync_components(pages=None):
+    comps = load_components()
+    pages = pages if pages is not None else root_pages()
+    changed = []
+
+    for page in pages:
+        html = read_file(page)
+        before = html
+
+        # 1. Navigation header (+ announcement bar)
+        if HEADER_RE.search(html):
+            html = HEADER_RE.sub(lambda m: comps['header'], html, count=1)
+        elif HEADER_FALLBACK_RE.search(html):
+            html = HEADER_FALLBACK_RE.sub(lambda m: comps['header'], html, count=1)
+        else:
+            print(f'  ! {page}: no header block found, skipped header')
+
+        # 2. Footer
+        if FOOTER_RE.search(html):
+            html = FOOTER_RE.sub(lambda m: comps['footer'], html, count=1)
+        else:
+            print(f'  ! {page}: no footer block found, skipped footer')
+
+        # 3. Pre-footer enquiry CTA band
+        if page in CTA_SKIP:
+            html = re.sub(r'[ \t]*<!-- CTA-BAND -->[\s\S]*?<!-- /CTA-BAND -->\n?', '', html, count=1)
+        elif CTA_RE.search(html):
+            html = CTA_RE.sub(lambda m: comps['cta'], html, count=1)
+        elif FOOTER_MARKER in html:
+            html = html.replace(FOOTER_MARKER, comps['cta'] + '\n' + FOOTER_MARKER, 1)
+        else:
+            print(f'  ! {page}: no footer marker, skipped CTA band')
+
+        # 4. Floating WhatsApp CTA
+        if FAB_RE.search(html):
+            html = FAB_RE.sub(lambda m: comps['fab'], html, count=1)
+        elif FOOTER_MARKER in html:
+            html = html.replace(FOOTER_MARKER, comps['fab'] + '\n' + FOOTER_MARKER, 1)
+        else:
+            print(f'  ! {page}: no footer marker, skipped WhatsApp FAB')
+
+        # 5. Script tags
+        if SCRIPT_RE.search(html):
+            html = SCRIPT_RE.sub(lambda m: comps['scripts'], html, count=1)
+        else:
+            print(f'  ! {page}: no script tag found')
+
+        # 6. Cache-bust the stylesheet
+        html = CSS_RE.sub(f'href="style.css?v={CSS_VERSION}"', html)
+
+        if html != before:
+            write_file(page, html)
+            changed.append(page)
+
+    print(f'Components synced into {len(changed)}/{len(pages)} page(s).')
+    if changed:
+        for page in changed:
+            print(f'  · {page}')
+    return changed
+
+
+# --------------------------------------------------------------------------
+# Full content rebuild (opt-in: python3 build.py --content)
+# --------------------------------------------------------------------------
+
+def markdown_bold(text):
+    """pages_data.json writes **bold**; the pages use <b>bold</b>."""
+    return re.sub(r'\*\*(.+?)\*\*', r'<b>\1</b>', text)
+
+
+def extract_head():
+    """Everything above the announcement bar: doctype, <head>, <body>."""
+    index_content = read_file('index.html')
+    cut = index_content.index('<div class="annc"')
+    return index_content[:cut]
+
+
+def generate_page(head, header, footer, filename, title, content, description=''):
+    page_head = head.replace(
+        '<title>Outdoor, Transit & Experiential Advertising Agency | UpGreat World</title>',
+        f'<title>{title}</title>')
+    page_head = page_head.replace(
+        '<title>UpGreat World — Be unmissable in the real world</title>',
+        f'<title>{title}</title>')
+
     if description:
-        page_header = re.sub(
+        page_head = re.sub(
             r'<meta name="description" content=".*?">',
             f'<meta name="description" content="{description}">',
-            page_header
-        )
-        
-    # Inject canonical link tag
-    page_header = page_header.replace(
+            page_head)
+
+    page_head = page_head.replace(
         '<link rel="canonical" href="https://upgreatworld.com/">',
-        f'<link rel="canonical" href="https://upgreatworld.com/{filename}">'
-    )
-        
-    html = page_header + '\n' + content + '\n' + footer
-    write_file(filename, html)
-    print(f"Generated {filename}")
+        f'<link rel="canonical" href="https://upgreatworld.com/{filename}">')
 
-# --- CORE PAGES ---
+    write_file(filename,
+               page_head + header + '\n' + content + '\n' + footer + '\n'
+               + comps_scripts() + '\n</body>\n</html>\n')
+    print(f'Generated {filename}')
 
-# 1. About Page
-about_content = """
+
+def generate_content():
+    comps = load_components()
+    head = extract_head()
+    header = comps['header']
+    footer = comps['footer']
+
+    def generate(filename, title, content, description=''):
+        generate_page(head, header, footer, filename, title, content, description)
+
+    # --- CORE PAGES ---
+
+    # 1. About Page
+    about_content = """
 <section class="inner-hero">
   <div class="wrap">
     <span class="sec-eyebrow reveal">About Us</span>
@@ -81,10 +219,11 @@ about_content = """
   </div>
 </section>
 """
-generate_page('about.html', 'About Us | UpGreat World', about_content, "UpGreat World is India’s premier full‑spectrum advertising agency operating across media, exhibitions, and trade.")
+    generate('about.html', 'About Us | UpGreat World', about_content,
+             "UpGreat World is India’s premier full‑spectrum advertising agency operating across media, exhibitions, and trade.")
 
-# 2. Services Page
-services_content = """
+    # 2. Services Page
+    services_content = """
 <section class="inner-hero">
   <div class="wrap">
     <span class="sec-eyebrow reveal">Our Verticals</span>
@@ -155,10 +294,11 @@ services_content = """
   </div>
 </section>
 """
-generate_page('services.html', 'Services | UpGreat World', services_content, "Discover our full-spectrum advertising services including Outdoor, Transit, BTL, DOOH, and more.")
+    generate('services.html', 'Services | UpGreat World', services_content,
+             "Discover our full-spectrum advertising services including Outdoor, Transit, BTL, DOOH, and more.")
 
-# 3. Case Studies Page
-cases_content = """
+    # 3. Case Studies Page
+    cases_content = """
 <section class="inner-hero">
   <div class="wrap">
     <span class="sec-eyebrow reveal">Case Studies</span>
@@ -183,10 +323,11 @@ cases_content = """
   </div>
 </section>
 """
-generate_page('case-studies.html', 'Case Studies | UpGreat World', cases_content, "Explore our advertising case studies showing proven real-world results across India.")
+    generate('case-studies.html', 'Case Studies | UpGreat World', cases_content,
+             "Explore our advertising case studies showing proven real-world results across India.")
 
-# 4. Contact Page
-contact_content = """
+    # 4. Contact Page
+    contact_content = """
 <section class="inner-hero">
   <div class="wrap">
     <span class="sec-eyebrow reveal">Get in Touch</span>
@@ -225,23 +366,22 @@ contact_content = """
       <p style="color:#fff; margin-top: 16px;"><strong>Headquarters:</strong><br>Gurugram, Haryana, India</p>
       <p style="color:#fff; margin-top: 16px;"><strong>Gurugram Office:</strong><br>Welldone Tech Park, Sector 48, Gurugram – 122018<br>Phone: <a href="tel:+919891296555">+91 98912 96555</a></p>
       <p style="color:#fff; margin-top: 16px;"><strong>Mumbai Office:</strong><br>128, Master Mind, Aarey Colony, Goregaon (E), Mumbai, Maharashtra 400065<br>Phone: <a href="tel:+919355666604">+91 93556 66604</a></p>
-      <p style="color:#fff; margin-top: 16px;"><strong>WhatsApp:</strong><br><a href="https://wa.me/919891296555" target="_blank" rel="noopener">+91 98912 96555</a></p>
+      <a href="https://wa.me/919891296555" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 24px;">Chat with us on WhatsApp <span class="arw">→</span></a>
     </div>
   </div>
 </section>
 """
-generate_page('contact.html', 'Contact Us | UpGreat World', contact_content, "Contact UpGreat World to start planning your custom physical advertising campaign.")
+    generate('contact.html', 'Contact Us | UpGreat World', contact_content,
+             "Contact UpGreat World to start planning your custom physical advertising campaign.")
 
+    # --- DYNAMIC SUB-PAGES (FROM pages_data.json) ---
 
-# --- DYNAMIC SUB-PAGES (FROM pages_data.json) ---
+    if os.path.exists('pages_data.json'):
+        with open('pages_data.json', 'r', encoding='utf-8') as f:
+            pages_data = json.load(f)
 
-if os.path.exists('pages_data.json'):
-    with open('pages_data.json', 'r', encoding='utf-8') as f:
-        pages_data = json.load(f)
-        
-    for filename, p in pages_data.items():
-        # Reconstruct the HTML body content from the JSON data
-        body_html = f"""
+        for filename, p in pages_data.items():
+            body_html = f"""
 <section class="inner-hero" style="background: linear-gradient(rgba(21, 21, 15, 0.7), rgba(21, 21, 15, 0.7)), url('{p['hero_bg']}'); background-size: cover; background-position: center; color: #fff;">
   <div class="wrap">
     <span class="sec-eyebrow reveal" style="color: rgba(255,255,255,0.75);">UpGreat World</span>
@@ -256,81 +396,73 @@ if os.path.exists('pages_data.json'):
 <section class="inner-content wrap">
   <div class="grid-2">
     <div class="content-box reveal">
-      <h3>{p['seo_title']}</h3>
+      <h3>{markdown_bold(p['seo_title'])}</h3>
 """
-        for para in p['paragraphs']:
-            body_html += f"      <p>{para}</p>\n"
-            
-        body_html += """    </div>
+            for para in p['paragraphs']:
+                body_html += f"      <p>{markdown_bold(para)}</p>\n"
+
+            body_html += """    </div>
     <div class="content-box reveal" data-d="1">
 """
-        if p['points']:
-            body_html += "      <h3>Key Highlights</h3>\n      <ul class=\"feat-list\">\n"
-            for pt in p['points']:
-                body_html += f"        <li><svg viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M20 6L9 17l-5-5\" stroke=\"currentColor\" stroke-width=\"2\"/></svg>{pt}</li>\n"
-            body_html += "      </ul>\n"
-        else:
-            body_html += """      <h3>Ready to dominate?</h3>
+            if p['points']:
+                body_html += "      <h3>Key Highlights</h3>\n      <ul class=\"feat-list\">\n"
+                for pt in p['points']:
+                    body_html += f"        <li><svg viewBox=\"0 0 24 24\" fill=\"none\"><path d=\"M20 6L9 17l-5-5\" stroke=\"currentColor\" stroke-width=\"2\"/></svg>{markdown_bold(pt)}</li>\n"
+                body_html += "      </ul>\n"
+            else:
+                body_html += """      <h3>Ready to dominate?</h3>
       <p>Book a high-impact campaign with India's premier advertising network today. We handle all planning, deployment, fabrication, and audits.</p>
       <a href="contact.html" class="btn btn-primary" style="margin-top: 16px;">Start a campaign <span class="arw">→</span></a>
 """
-        body_html += """    </div>
+            body_html += """    </div>
   </div>
 </section>
 """
 
-        if p['cards']:
-            body_html += f"""
+            if p['cards']:
+                body_html += f"""
 <section class="inner-content" style="background: var(--warm); border-top: 1px solid var(--line-2); border-bottom: 1px solid var(--line-2);">
   <div class="wrap">
     <span class="sec-eyebrow reveal" style="display: block; text-align: center;">Advantages</span>
     <h2 class="sec-title reveal" data-d="1" style="text-align: center; margin-bottom: 48px;">Why Choose Us</h2>
     <div class="grid-3">
 """
-            for i, card in enumerate(p['cards'][:3]):
-                delay = f' data-d="{i}"' if i > 0 else ""
-                body_html += f"""      <div class="content-box reveal"{delay}>
-        <h3 style="font-size: 1.5rem; margin-bottom: 12px;">{card['title']}</h3>
-        <p style="margin-bottom: 0;">{card['desc']}</p>
+                for i, card in enumerate(p['cards'][:3]):
+                    delay = f' data-d="{i}"' if i > 0 else ""
+                    body_html += f"""      <div class="content-box reveal"{delay}>
+        <h3 style="font-size: 1.5rem; margin-bottom: 12px;">{markdown_bold(card['title'])}</h3>
+        <p style="margin-bottom: 0;">{markdown_bold(card['desc'])}</p>
       </div>\n"""
-            body_html += """    </div>
+                body_html += """    </div>
   </div>
 </section>
 """
 
-        if p['faqs']:
-            body_html += """
+            if p['faqs']:
+                body_html += """
 <section class="inner-content wrap" style="max-width: 800px;">
   <span class="sec-eyebrow reveal" style="display: block; text-align: center;">FAQ</span>
   <h2 class="sec-title reveal" data-d="1" style="text-align: center; margin-bottom: 44px;">Frequently Asked Questions</h2>
   <div class="reveal" data-d="2" style="display: flex; flex-direction: column; gap: 16px;">
 """
-            for faq in p['faqs']:
-                body_html += f"""    <div class="content-box" style="padding: 24px; border-radius: 12px;">
-      <h4 style="font-family: var(--serif); font-size: 1.25rem; font-weight: 500; margin-bottom: 8px;">{faq['q']}</h4>
-      <p style="margin-bottom: 0; color: var(--ink-2); font-size: 15px;">{faq['a']}</p>
+                for faq in p['faqs']:
+                    body_html += f"""    <div class="content-box" style="padding: 24px; border-radius: 12px;">
+      <h4 style="font-family: var(--serif); font-size: 1.25rem; font-weight: 500; margin-bottom: 8px;">{markdown_bold(faq['q'])}</h4>
+      <p style="margin-bottom: 0; color: var(--ink-2); font-size: 15px;">{markdown_bold(faq['a'])}</p>
     </div>\n"""
-            body_html += """  </div>
+                body_html += """  </div>
 </section>
 """
 
-        generate_page(filename, p['title'], body_html, p['description'])
-        
-        # Inject FAQ Schema if present
-        if p['schema']:
-            file_path = filename
-            html = read_file(file_path)
-            html = html.replace('</body>', f'<script type="application/ld+json">\n{p["schema"]}\n</script>\n</body>')
-            write_file(file_path, html)
+            generate(filename, p['title'], body_html, p['description'])
 
-# Finally, update index.html to use the new HTML links
-index_content = index_content.replace('href="#services"', 'href="services.html"')
-index_content = index_content.replace('href="#approach"', 'href="about.html"')
-index_content = index_content.replace('href="#contact"', 'href="contact.html"')
-write_file('index.html', index_content)
+            if p['schema']:
+                html = read_file(filename)
+                html = html.replace('</body>', f'<script type="application/ld+json">\n{p["schema"]}\n</script>\n</body>')
+                write_file(filename, html)
 
-# Generate sitemap.html
-sitemap_html_content = """
+    # --- SITEMAP ---
+    sitemap_html_content = """
 <section class="inner-hero">
   <div class="wrap">
     <span class="sec-eyebrow reveal">Navigation Portal</span>
@@ -373,37 +505,51 @@ sitemap_html_content = """
   </div>
 </section>
 """
-generate_page('sitemap.html', 'HTML Sitemap | Directory of Pages | UpGreat World', sitemap_html_content, "Explore the sitemap directory of UpGreat World for easy navigation of all our outdoor advertising, transit, and BTL marketing pages.")
+    generate('sitemap.html', 'HTML Sitemap | Directory of Pages | UpGreat World', sitemap_html_content,
+             "Explore the sitemap directory of UpGreat World for easy navigation of all our outdoor advertising, transit, and BTL marketing pages.")
 
-# Generate sitemap.xml
-xml_pages = [
-    ('', 1.0, 'daily'),
-    ('about.html', 0.8, 'monthly'),
-    ('services.html', 0.8, 'weekly'),
-    ('case-studies.html', 0.8, 'weekly'),
-    ('cities.html', 0.8, 'weekly'),
-    ('campaign.html', 0.8, 'monthly'),
-    ('contact.html', 0.8, 'monthly'),
-    ('sitemap.html', 0.5, 'monthly'),
-]
+    # Generate sitemap.xml
+    xml_pages = [
+        ('', 1.0, 'daily'),
+        ('about.html', 0.8, 'monthly'),
+        ('services.html', 0.8, 'weekly'),
+        ('case-studies.html', 0.8, 'weekly'),
+        ('cities.html', 0.8, 'weekly'),
+        ('campaign.html', 0.8, 'monthly'),
+        ('contact.html', 0.8, 'monthly'),
+        ('sitemap.html', 0.5, 'monthly'),
+    ]
 
-# Load dynamic pages
-if os.path.exists('pages_data.json'):
-    with open('pages_data.json', 'r', encoding='utf-8') as f:
-        data = json.load(f)
-        for page in data.keys():
-            xml_pages.append((page, 0.6, 'weekly'))
+    if os.path.exists('pages_data.json'):
+        with open('pages_data.json', 'r', encoding='utf-8') as f:
+            data = json.load(f)
+            for page in data.keys():
+                xml_pages.append((page, 0.6, 'weekly'))
 
-xml_content = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
-for page, priority, freq in xml_pages:
-    url = f"https://upgreatworld.com/{page}"
-    xml_content += f"""  <url>
+    xml_content = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+    for page, priority, freq in xml_pages:
+        url = f"https://upgreatworld.com/{page}"
+        xml_content += f"""  <url>
     <loc>{url}</loc>
     <changefreq>{freq}</changefreq>
     <priority>{priority:.1f}</priority>
   </url>\n"""
-xml_content += '</urlset>\n'
-write_file('sitemap.xml', xml_content)
-print("Generated sitemap.xml")
+    xml_content += '</urlset>\n'
+    write_file('sitemap.xml', xml_content)
+    print('Generated sitemap.xml')
 
-print("Site generation complete.")
+
+# --------------------------------------------------------------------------
+
+def main():
+    if '--content' in sys.argv:
+        print('Rebuilding page content from pages_data.json …')
+        generate_content()
+
+    print('Syncing shared components …')
+    sync_components()
+    print('Done.')
+
+
+if __name__ == '__main__':
+    main()

@@ -1,55 +1,52 @@
-<div class="nav__container container">
-  <a href="index.html" class="nav__logo">UpGreat World</a>
-
-  <nav class="nav__menu">
-    <a href="index.html" class="nav__link">Home</a>
-    <div class="nav__dropdown">
-      <a href="services.html" class="nav__link">Services</a>
-      <div class="nav__dropdown-content">
-        <a href="outdoor-advertising.html">Outdoor Advertising</a>
-        <a href="transit-advertising.html">Transit Advertising</a>
-        <a href="btl-marketing.html">BTL Marketing</a>
-        <a href="hyperlocal-marketing.html">Hyperlocal</a>
-        <a href="digital-ooh.html">Digital OOH</a>
-        <a href="event-exhibition.html">Event & Exhibition</a>
-        <a href="retail-branding.html">Retail Branding</a>
-        <hr style="border: none; border-top: 1px solid var(--outline-variant); margin: var(--space-2) 0;">
-        <a href="services.html" style="font-weight: 600;">View All Services →</a>
-      </div>
-    </div>
-    <a href="case-studies.html" class="nav__link">Case Studies</a>
-    <a href="cities.html" class="nav__link">Cities</a>
-    <a href="about.html" class="nav__link">About</a>
-    <a href="contact.html" class="nav__link">Contact</a>
-  </nav>
-
-  <div class="nav__actions">
-    <a href="contact.html" class="btn btn--primary btn--sm">Get Free Plan</a>
-    <button class="nav__mobile-toggle">
-      <span class="material-symbols-outlined">menu</span>
-    </button>
+<div class="annc" id="annc">
+  <div class="annc-in">
+    New — our Digital OOH network is now live in 20+ cities.
+    <a href="index.html#cities">See coverage <span>→</span></a>
+    <span class="tag">Pan-India</span>
   </div>
+  <button class="x" id="anncX" aria-label="Dismiss">✕</button>
 </div>
 
-<style>
-  /* Header specific styles to handle mobile menu visibility if not in global CSS */
-  @media (max-width: 767px) {
-    .nav__menu {
-      position: fixed;
-      top: var(--header-height);
-      left: 0;
-      width: 100%;
-      background: var(--surface-container-lowest);
-      flex-direction: column;
-      padding: var(--space-8);
-      gap: var(--space-4);
-      display: none;
-      /* Controlled by JS toggle */
-      box-shadow: var(--shadow-ambient);
-    }
-
-    .nav__menu--open {
-      display: flex;
-    }
-  }
-</style>
+<!-- NAV -->
+<header id="hdr">
+  <div class="wrap nav">
+    <a href="index.html" class="brand">
+      <video src="assets/logo.MP4" autoplay loop muted playsinline class="mark" style="object-fit: cover; border-radius: 0.25rem;"></video>
+      UpGreat World
+    </a>
+    <nav class="nav-links">
+      <div class="dropdown">
+        <a href="services.html">Media Services <span class="car">▾</span></a>
+        <div class="dropdown-menu">
+          <a href="outdoor-advertising.html">Outdoor Advertising</a>
+          <a href="transit-advertising.html">Transit Advertising</a>
+          <a href="btl-marketing.html">BTL Marketing</a>
+          <a href="digital-ooh.html">Digital OOH</a>
+          <a href="hyperlocal-marketing.html">Hyperlocal Targeting</a>
+          <a href="mall-multiplex-advertising.html">Mall & Multiplex</a>
+        </div>
+      </div>
+      <div class="dropdown">
+        <a href="services.html">Production &amp; Strategy <span class="car">▾</span></a>
+        <div class="dropdown-menu">
+          <a href="event-exhibition.html">Event &amp; Exhibition</a>
+          <a href="experiential-marketing.html">Experiential Branding</a>
+          <a href="branding-production.html">Branding Production</a>
+          <a href="corporate-office-branding.html">Corporate Signage</a>
+          <a href="retail-branding.html">Retail Facade Branding</a>
+          <a href="political-advertising.html">Political Visibility</a>
+          <a href="print-advertising.html">Print Media &amp; Format</a>
+          <a href="media-planning.html">Media Planning</a>
+        </div>
+      </div>
+      <a href="about.html">About</a>
+      <a href="index.html#cities">Cities</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+    <div class="nav-right">
+      <span class="lang">EN</span>
+      <a href="contact.html" class="nav-cta">Start a campaign <span class="arw">→</span></a>
+      <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</header>

@@ -213,6 +213,28 @@
   .cta-box p{color:var(--ink-2);margin:22px auto 0;max-width:44ch;font-size:1.1rem}
   .cta-box .btn{margin-top:34px}
 
+  /* ---------- CTA BAND (global enquiry strip) ---------- */
+  .cta-band{background:var(--warm);border-top:1px solid var(--line-2);padding:64px 0}
+  .cta-band__in{display:flex;flex-wrap:wrap;gap:36px;align-items:center;justify-content:space-between}
+  .cta-band__copy .sec-eyebrow{display:block}
+  .cta-band__copy h3{font-family:var(--serif);font-weight:400;font-size:clamp(2rem,3.6vw,2.9rem);line-height:1.05;letter-spacing:-.02em;margin-top:14px;max-width:16ch}
+  .cta-band__copy p{color:var(--ink-2);margin-top:12px;max-width:50ch}
+  .cta-band__acts{display:flex;flex-wrap:wrap;gap:14px}
+  .btn-ghost{border:1px solid var(--line);background:#fff;color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--ink);transform:translateY(-2px)}
+
+  /* ---------- FLOATING WHATSAPP CTA ---------- */
+  .wa-fab{position:fixed;right:26px;bottom:26px;z-index:900;display:inline-flex;align-items:center;justify-content:center;width:58px;height:58px;border-radius:50%;background:#25D366;color:#fff;box-shadow:0 16px 34px -12px rgba(37,211,102,.75);animation:waBob 2.6s ease-in-out infinite;transition:box-shadow .25s var(--ease)}
+  .wa-fab svg{width:30px;height:30px;display:block}
+  .wa-fab:hover{animation:none;transform:translateY(-6px) scale(1.06);box-shadow:0 20px 40px -12px rgba(37,211,102,.85)}
+  .wa-fab:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+  @keyframes waBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+  @media(max-width:640px){
+    .wa-fab{right:16px;bottom:16px;width:54px;height:54px}
+    .cta-band{padding:46px 0}
+    .cta-band__acts .btn{width:100%;justify-content:center}
+  }
+
   /* ---------- FOOTER ---------- */
   footer{border-top:1px solid var(--line);padding:4.375rem 0 2.5rem}
   .foot-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr 1fr;gap:2.5rem}
