@@ -36,8 +36,8 @@ COMPONENTS = {
     'scripts': 'components/scripts.html',
 }
 
-CSS_VERSION = 4   # bump to force browsers to pick up style.css changes
-JS_VERSION = 3    # bump to force browsers to pick up script.js changes
+CSS_VERSION = 5   # bump to force browsers to pick up style.css changes
+JS_VERSION = 4    # bump to force browsers to pick up script.js changes
 
 HEADER_RE = re.compile(r'<div class="annc"[\s\S]*?</header>')
 HEADER_FALLBACK_RE = re.compile(r'<header id="hdr">[\s\S]*?</header>')
@@ -220,15 +220,22 @@ def generate_content():
       <p>We provide large‑scale physical visibility with site-level planning, transparent inventory mapping, and certified photo proof of display.</p>
     </div>
     <div class="content-box reveal" data-d="1">
-      <h3>How We Work</h3>
+      <h3>How We Work: Plan → Execute → Prove</h3>
       <p style="font-weight: 600; color: var(--brand);">Brief → Plan → Inventory → Production → Deployment → Verification → Reporting</p>
       <p>Our operational field network covers 20+ cities, ensuring rapid 24/7 turnaround on fabrication, mounting, maintenance, and audit compliance.</p>
     </div>
   </div>
-  <div class="content-box reveal" style="margin-top: 2rem;">
-    <span class="sec-eyebrow">Corporate Group</span>
-    <h3 style="margin-top: 0.5rem;">Part of the UpGreat Group</h3>
-    <p>UpGreat World is the media & experiential advertising arm of UpGreat Group — operating across media execution, trade exhibitions, employment platforms, and international trade.</p>
+  <div class="grid-2" style="margin-top: 2rem;">
+    <div class="content-box reveal">
+      <span class="sec-eyebrow">Corporate Group</span>
+      <h3 style="margin-top: 0.5rem;">Part of the UpGreat Group</h3>
+      <p>UpGreat World is the media & experiential advertising arm of UpGreat Group — operating across media execution, trade exhibitions, employment platforms, and international trade.</p>
+    </div>
+    <div class="content-box reveal" data-d="1">
+      <span class="sec-eyebrow">Enterprise Ready</span>
+      <h3 style="margin-top: 0.5rem;">Built for Corporate Procurement</h3>
+      <p>Multi-city execution • Central account management • Geo-tagged site verification • GST invoicing • PO-based billing • SLA-backed execution • Campaign documentation.</p>
+    </div>
   </div>
 </section>
 """
@@ -356,23 +363,83 @@ def generate_content():
   <div class="grid-2">
     <div class="content-box reveal">
       <form>
-        <div class="form-group">
-          <label>Name</label>
-          <input type="text" placeholder="Jane Doe">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+          <div class="form-group">
+            <label>Campaign Type</label>
+            <select style="width:100%; padding:10px 14px; border:1px solid var(--line); border-radius:6px; font-size:0.9375rem; background:#fff;">
+              <option value="">Select campaign type...</option>
+              <option>Brand Launch & Visibility</option>
+              <option>Lead Generation & Footfall</option>
+              <option>Store / Retail Opening</option>
+              <option>Product Launch</option>
+              <option>Political / Election</option>
+              <option>Event / Exhibition</option>
+              <option>Hyperlocal Dominance</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Target City</label>
+            <select style="width:100%; padding:10px 14px; border:1px solid var(--line); border-radius:6px; font-size:0.9375rem; background:#fff;">
+              <option value="">Select target market...</option>
+              <option>Delhi NCR</option>
+              <option>Mumbai</option>
+              <option>Bengaluru</option>
+              <option>Hyderabad</option>
+              <option>Pune</option>
+              <option>Chennai</option>
+              <option>Kolkata</option>
+              <option>Ahmedabad</option>
+              <option>Pan-India Multi-City</option>
+              <option>Other</option>
+            </select>
+          </div>
         </div>
-        <div class="form-group">
-          <label>Company</label>
-          <input type="text" placeholder="Acme Corp">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+          <div class="form-group">
+            <label>Approximate Budget</label>
+            <select style="width:100%; padding:10px 14px; border:1px solid var(--line); border-radius:6px; font-size:0.9375rem; background:#fff;">
+              <option value="">Select budget range...</option>
+              <option>Under ₹2 Lakhs</option>
+              <option>₹2L – ₹5 Lakhs</option>
+              <option>₹5L – ₹15 Lakhs</option>
+              <option>₹15L – ₹50 Lakhs</option>
+              <option>₹50 Lakhs+</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Launch Timeline</label>
+            <select style="width:100%; padding:10px 14px; border:1px solid var(--line); border-radius:6px; font-size:0.9375rem; background:#fff;">
+              <option value="">When do you need to launch?</option>
+              <option>Immediately (within 1 week)</option>
+              <option>This month</option>
+              <option>Within 1–2 months</option>
+              <option>Within 3+ months</option>
+              <option>Just exploring</option>
+            </select>
+          </div>
         </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" placeholder="jane@example.com">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" placeholder="Your full name">
+          </div>
+          <div class="form-group">
+            <label>Company / Brand</label>
+            <input type="text" placeholder="Company name">
+          </div>
         </div>
-        <div class="form-group">
-          <label>Campaign Details</label>
-          <textarea rows="4" placeholder="Tell us about your target cities and goals..."></textarea>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+          <div class="form-group">
+            <label>Phone / WhatsApp</label>
+            <input type="tel" placeholder="+91 98765 43210">
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="you@company.com">
+          </div>
         </div>
-        <button type="submit" class="btn btn-primary" style="border:none; cursor:pointer;">Submit Request <span class="arw">→</span></button>
+        <button type="submit" class="btn btn-primary" style="border:none; cursor:pointer; width:100%; padding:14px;">Submit Campaign Enquiry <span class="arw">→</span></button>
       </form>
     </div>
     <div class="content-box reveal" data-d="1" style="background:var(--blue); color:#fff; border:none;">

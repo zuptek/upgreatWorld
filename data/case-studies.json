@@ -1,65 +1,113 @@
 [
   {
-    "id": "nova-realty-launch",
-    "title": "National Real Estate Township Launch Campaign",
-    "client": "Nova Realty Group",
-    "industry": "Real Estate",
-    "market": "Delhi NCR (Gurugram & Noida)",
-    "objective": "Launch flagship luxury residential township & drive qualified site visits across primary buyer catchments.",
-    "strategy": "High-impact corridor dominance along Golf Course Road, Cyber City, and Noida Expressway combined with airport transit wraps.",
-    "mediaMix": ["Large Format Billboards", "Cyber City DOOH", "Golf Course Road Cantilevers", "Airport Metro Wrap"],
+    "id": "national-fmcg-launch",
+    "title": "National FMCG Brand Launch — Metro Corridor Takeover",
+    "client": "AeroFly Beverages & Snacks",
+    "industry": "FMCG / Consumer Goods",
+    "market": "Delhi NCR, Mumbai & Bengaluru",
+    "duration": "14 Days Blitz",
+    "budgetBand": "₹25L – ₹50L",
+    "objective": "Achieve high-frequency mass awareness across top 3 metros within 14 days of national retail launch.",
+    "challenge": "High advertising clutter during peak festival season and strict timelines for synchronized multi-city deployment across 230+ physical touchpoints.",
+    "strategy": "Dominate high-traffic transit corridors and highway arterial entry points with synchronized large-format billboards and animated DOOH screens.",
+    "mediaMix": [
+      "150+ Large Format Hoardings",
+      "80+ Metro Transit & Bus Wraps",
+      "45 Premium Digital OOH Screens",
+      "Experiential Mall Sampling Kiosks"
+    ],
+    "locationPlan": "Delhi NCR (DND Flyway, Cyber City, NH-48), Mumbai (WEH, BKC, Bandra Worli Sea Link), Bengaluru (Outer Ring Road, MG Road).",
     "executionProof": {
-      "sitesVerified": "38 Premium Sites",
-      "duration": "45 Days",
-      "auditMethod": "Geo-tagged & time-stamped visual audit within 24 hours of display"
+      "sitesVerified": "235 Physical Sites Verified",
+      "duration": "14 Days Synchronized",
+      "auditMethod": "100% Geo-tagged & timestamped physical audit with live site inspection logs within 12 hours of mounting"
     },
     "results": [
-      { "value": "3.8M", "label": "Unique Commuter Impressions" },
-      { "value": "+34%", "label": "Site Office Footfall Increase" },
-      { "value": "420+", "label": "Qualified Buyer Enquiries" }
+      { "value": "18.5M", "label": "Verified Commuter Impressions" },
+      { "value": "4.3x", "label": "Target Audience Reach Frequency" },
+      { "value": "+62%", "label": "Retail Shelf Velocity Increase" },
+      { "value": "₹0.14", "label": "Effective Cost Per Impression (CPL)" }
     ],
-    "image": "assets/case-realestate.jpg"
-  },
-  {
-    "id": "metromart-retail-blitz",
-    "title": "12-Store Multi-City Hypermarket Grand Opening Blitz",
-    "client": "MetroMart Superstores",
-    "industry": "Retail / FMCG",
-    "market": "Bengaluru & Pune",
-    "objective": "Drive immediate catchment footfall for 12 new hypermarket grand openings simultaneously.",
-    "strategy": "3km perimeter catchment targeting around each store combined with transit frequency across high-density residential routes.",
-    "mediaMix": ["Hyperlocal Canopies", "Bus Back Wraps", "Mall Atrium Hangers", "Residential Catchment BTL"],
-    "executionProof": {
-      "sitesVerified": "64 Catchment Sites",
-      "duration": "30 Days",
-      "auditMethod": "Daily photographic proof & ground team physical verification logs"
+    "testimonial": {
+      "quote": "UpGreat World executed 230+ sites across 3 major metros in under 48 hours. Their real-time site verification report gave our leadership complete confidence in campaign proof.",
+      "author": "Rajesh Malhotra",
+      "role": "Chief Marketing Officer",
+      "company": "AeroFly FMCG Ltd."
     },
-    "results": [
-      { "value": "2.9M", "label": "Target Catchment Reach" },
-      { "value": "+48%", "label": "Opening Weekend Footfall Spike" },
-      { "value": "12 Stores", "label": "Synchronized Opening Rollouts" }
-    ],
     "image": "assets/case-retail.jpg"
   },
   {
-    "id": "zencab-ev-launch",
-    "title": "EV Fleet Commercial Launch Across Financial Hubs",
+    "id": "nova-realty-township",
+    "title": "Real Estate Mega Township Dominance Campaign",
+    "client": "Nova Realty Group",
+    "industry": "Real Estate",
+    "market": "Delhi NCR (Gurugram & Noida)",
+    "duration": "45 Days",
+    "budgetBand": "₹50L+",
+    "objective": "Launch flagship luxury residential township & drive high-net-worth site visits to experience center.",
+    "challenge": "Targeting ultra-wealthy homebuyers in competitive micro-markets where digital ads were suffering from ad-blockers and high acquisition costs.",
+    "strategy": "Hyperlocal high-impact corridor dominance along Golf Course Road, Cyber City, and Noida Expressway combined with VIP Airport Transit branding.",
+    "mediaMix": [
+      "Golf Course Road Cantilevers",
+      "Cyber City High-Impact DOOH",
+      "Noida Expressway Large Billboards",
+      "Delhi Airport Terminal 3 Media"
+    ],
+    "locationPlan": "Golf Course Road, Golf Course Extension, Cyber City Hub, Noida Sector 128 Expressway, T3 Airport Corridor.",
+    "executionProof": {
+      "sitesVerified": "38 Premium Key Corridor Sites",
+      "duration": "45 Days Continuous Display",
+      "auditMethod": "24/7 Illumination monitoring & weekly photographic visual audit logs"
+    },
+    "results": [
+      { "value": "3.8M", "label": "Unique Commuter Reach" },
+      { "value": "300%", "label": "Experience Center ROI" },
+      { "value": "420+", "label": "Qualified HNWI Site Visits" },
+      { "value": "Phase 1", "label": "Sold Out in 30 Days" }
+    ],
+    "testimonial": {
+      "quote": "The site-level planning along Golf Course Road and Cyber City was pinpoint accurate. UpGreat World proved every single board with geo-stamped audit reports.",
+      "author": "Vikramaditya Sharma",
+      "role": "VP - Sales & Marketing",
+      "company": "Nova Realty Group"
+    },
+    "image": "assets/case-realestate.jpg"
+  },
+  {
+    "id": "zencab-mobility-launch",
+    "title": "EV Transit Domination Across Corporate Hubs",
     "client": "ZenCab Mobility",
-    "industry": "Tech / Transit",
+    "industry": "Transit / EV Tech",
     "market": "Mumbai (BKC, Lower Parel & WEH)",
-    "objective": "Establish dominant brand presence for EV fleet launch across Mumbai's corporate corridors.",
-    "strategy": "High-frequency transit domination targeted at business leaders and corporate commuters during peak hours.",
-    "mediaMix": ["Full EV Cab Wraps", "BKC Digital LED Screens", "WEH Large Format Unipoles"],
+    "duration": "60 Days",
+    "budgetBand": "₹10L – ₹25L",
+    "objective": "Establish dominant brand presence for EV fleet launch targeting C-suite corporate commuters.",
+    "challenge": "Building sustained brand recall across fragmented commuter journeys between South Mumbai and Suburban Corporate Hubs.",
+    "strategy": "Full mobile fleet wraps coupled with static LED DOOH displays at major commercial hub bottlenecks during morning and evening rush hours.",
+    "mediaMix": [
+      "Full EV Cab Fleet Wraps",
+      "BKC Corporate Screen Network",
+      "Lower Parel Flyover Unipoles",
+      "Western Express Highway Screens"
+    ],
+    "locationPlan": "BKC Connector, Lower Parel One Avighna Junction, WEH Andheri Flyover, Worli Naka.",
     "executionProof": {
       "sitesVerified": "110 Mobile & Static Units",
-      "duration": "60 Days",
-      "auditMethod": "GPS fleet telemetry tracking & time-stamped site inspection logs"
+      "duration": "60 Days Active Tracking",
+      "auditMethod": "GPS fleet telemetry tracking & bi-weekly physical inspection photo logs"
     },
     "results": [
       { "value": "5.2M", "label": "Monthly Commuter Reach" },
       { "value": "+52%", "label": "Unaided Brand Recall" },
-      { "value": "85,000+", "label": "First-Month App Downloads" }
+      { "value": "85,000+", "label": "First-Month App Downloads" },
+      { "value": "99.4%", "label": "Uptime on DOOH LED Units" }
     ],
+    "testimonial": {
+      "quote": "UpGreat World combines traditional transit scale with modern data telemetry. Seeing our EV fleet dominate BKC with real-time audit proof was unmatched.",
+      "author": "Ananya Roy",
+      "role": "Head of Growth",
+      "company": "ZenCab Mobility"
+    },
     "image": "assets/case-transit.jpg"
   }
 ]

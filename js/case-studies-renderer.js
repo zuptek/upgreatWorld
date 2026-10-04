@@ -1,6 +1,6 @@
 /**
  * UpGreat World Case Studies Sales Presentation Renderer
- * Renders proof-heavy B2B sales case studies from case-studies.json
+ * Renders deep, proof-heavy B2B sales case studies from case-studies.json
  */
 
 document.addEventListener('DOMContentLoaded', async () => {
@@ -25,35 +25,59 @@ document.addEventListener('DOMContentLoaded', async () => {
   const html = `
     <div class="cs-sales-grid">
       ${caseStudies.map(cs => `
-        <article class="cs-sales-card">
+        <article class="cs-sales-card reveal">
           <div class="cs-card-header">
-            <div class="cs-badges">
+            <div class="cs-meta-bar">
               <span class="badge-client">${cs.client}</span>
               <span class="badge-ind">${cs.industry}</span>
-              <span class="badge-geo">${cs.market}</span>
+              <span class="badge-geo">📍 ${cs.market}</span>
+              <span class="badge-duration">⏱ ${cs.duration}</span>
+              <span class="badge-budget">💰 Budget: ${cs.budgetBand}</span>
             </div>
             <h2 class="cs-card-title">${cs.title}</h2>
           </div>
 
           <div class="cs-card-body">
-            <div class="cs-sec">
-              <h4>🎯 Objective</h4>
-              <p>${cs.objective}</p>
-            </div>
-
-            <div class="cs-sec">
-              <h4>🗺 Strategy &amp; Media Mix</h4>
-              <p>${cs.strategy}</p>
-              <div class="cs-mix-chips">
-                ${cs.mediaMix.map(m => `<span class="mix-chip">${m}</span>`).join('')}
+            <div class="cs-narrative-grid">
+              <div class="cs-sec">
+                <h4>🎯 Objective</h4>
+                <p>${cs.objective}</p>
               </div>
-            </div>
 
-            <div class="cs-sec cs-proof-sec">
-              <h4>📸 Execution Proof</h4>
-              <p><strong>Verified Sites:</strong> ${cs.executionProof.sitesVerified}</p>
-              <p><strong>Duration:</strong> ${cs.executionProof.duration}</p>
-              <p class="proof-note">✓ ${cs.executionProof.auditMethod}</p>
+              <div class="cs-sec">
+                <h4>⚡ The Challenge</h4>
+                <p>${cs.challenge}</p>
+              </div>
+
+              <div class="cs-sec">
+                <h4>🗺 Strategy &amp; Media Mix</h4>
+                <p>${cs.strategy}</p>
+                <div class="cs-mix-chips">
+                  ${cs.mediaMix.map(m => `<span class="mix-chip">✓ ${m}</span>`).join('')}
+                </div>
+              </div>
+
+              <div class="cs-sec">
+                <h4>📌 Location Plan</h4>
+                <p>${cs.locationPlan}</p>
+              </div>
+
+              <div class="cs-sec cs-proof-sec">
+                <h4>📸 Verified Execution Audit</h4>
+                <p><strong>Verified Touchpoints:</strong> ${cs.executionProof.sitesVerified}</p>
+                <p><strong>Campaign Duration:</strong> ${cs.executionProof.duration}</p>
+                <div class="audit-badge">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="currentColor" stroke-width="2"/><path d="M9 12l2 2 4-4" stroke="currentColor" stroke-width="2"/></svg>
+                  <span>${cs.executionProof.auditMethod}</span>
+                </div>
+              </div>
+
+              ${cs.testimonial ? `
+                <div class="cs-sec cs-testimonial-box">
+                  <p class="t-quote">"${cs.testimonial.quote}"</p>
+                  <p class="t-author"><strong>${cs.testimonial.author}</strong> — ${cs.testimonial.role}, <em>${cs.testimonial.company}</em></p>
+                </div>
+              ` : ''}
             </div>
 
             <div class="cs-kpi-grid">
@@ -66,8 +90,8 @@ document.addEventListener('DOMContentLoaded', async () => {
             </div>
 
             <div class="cs-card-footer">
-              <a href="campaign.html?industry=${encodeURIComponent(cs.industry)}" class="btn btn-primary btn-full">
-                Plan a Similar Campaign →
+              <a href="campaign.html?industry=${encodeURIComponent(cs.industry)}&market=${encodeURIComponent(cs.market)}" class="btn btn-primary btn-full">
+                Build a Similar Campaign Plan →
               </a>
             </div>
           </div>

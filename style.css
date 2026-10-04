@@ -789,3 +789,122 @@
     text-align: center;
   }
 
+  /* ---------- STRUCTURED DROPDOWN NAVIGATION ---------- */
+  .dropdown-menu {
+    display: flex;
+    gap: 0;
+    min-width: 28rem;
+    padding: 0;
+  }
+  .dropdown-col {
+    flex: 1;
+    padding: 0.75rem 0;
+  }
+  .dropdown-col:first-child {
+    border-right: 1px solid var(--line-2);
+  }
+  .dropdown-heading {
+    display: block;
+    font-family: var(--mono);
+    font-size: 0.625rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    padding: 0.5rem 1.25rem 0.375rem;
+    font-weight: 600;
+  }
+  .dropdown-col a {
+    display: block;
+    padding: 0.4375rem 1.25rem;
+    font-size: 0.875rem;
+    color: var(--ink-2);
+    transition: color 0.2s, background 0.2s;
+  }
+  .dropdown-col a:hover {
+    color: var(--ink);
+    background: var(--warm);
+  }
+
+  /* ---------- SECONDARY BUTTON ---------- */
+  .btn-secondary {
+    background: #fff;
+    color: var(--ink);
+    border: 1px solid var(--line);
+    transition: transform 0.25s var(--ease), border-color 0.25s, background 0.25s;
+  }
+  .btn-secondary:hover {
+    border-color: var(--ink);
+    transform: translateY(-2px);
+  }
+
+  /* ---------- CASE STUDY EXTENDED BADGES ---------- */
+  .cs-meta-bar {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+  }
+  .badge-duration, .badge-budget {
+    font-family: var(--mono);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    background: var(--warm);
+    color: var(--ink-2);
+    padding: 3px 8px;
+    border-radius: 2px;
+  }
+  .cs-narrative-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .audit-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--green);
+    font-weight: 500;
+  }
+  .audit-badge svg {
+    flex-shrink: 0;
+    color: var(--green);
+  }
+
+  /* ---------- TESTIMONIAL QUOTE ---------- */
+  .cs-testimonial-box {
+    background: var(--warm);
+    border-left: 3px solid var(--blue);
+    padding: 16px 18px;
+    border-radius: 2px;
+  }
+  .cs-testimonial-box .t-quote {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-style: italic;
+    line-height: 1.55;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .cs-testimonial-box .t-author {
+    font-size: 12.5px;
+    color: var(--ink-2);
+  }
+
+  /* ---------- RESPONSIVE: NEW SECTIONS ---------- */
+  @media(max-width:960px) {
+    .dropdown-menu {
+      flex-direction: column;
+      min-width: 16rem;
+    }
+    .dropdown-col:first-child {
+      border-right: none;
+      border-bottom: 1px solid var(--line-2);
+    }
+    .cs-sales-grid {
+      grid-template-columns: 1fr;
+    }
+  }

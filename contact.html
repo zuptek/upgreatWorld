@@ -18,7 +18,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=5">
 <link rel="canonical" href="https://upgreatworld.com/contact.html">
 </head>
 <body>
@@ -44,19 +44,26 @@
       <div class="dropdown">
         <a href="services.html">Solutions <span class="car">▾</span></a>
         <div class="dropdown-menu">
-          <a href="outdoor-advertising.html">Outdoor Advertising</a>
-          <a href="transit-advertising.html">Transit Advertising</a>
-          <a href="btl-marketing.html">BTL Marketing</a>
-          <a href="digital-ooh.html">Digital OOH</a>
-          <a href="mall-multiplex-advertising.html">Mall &amp; Multiplex</a>
-          <a href="event-exhibition.html">Event &amp; Exhibition</a>
-          <a href="experiential-marketing.html">Experiential Branding</a>
-          <a href="branding-production.html">Branding Production</a>
-          <a href="corporate-office-branding.html">Corporate Signage</a>
-          <a href="retail-branding.html">Retail Facade</a>
-          <a href="political-advertising.html">Political Visibility</a>
-          <a href="print-advertising.html">Print Media</a>
-          <a href="media-planning.html">Media Planning</a>
+          <div class="dropdown-col">
+            <span class="dropdown-heading">Media Services</span>
+            <a href="outdoor-advertising.html">Outdoor (OOH)</a>
+            <a href="digital-ooh.html">Digital OOH (DOOH)</a>
+            <a href="transit-advertising.html">Transit Media</a>
+            <a href="btl-marketing.html">BTL &amp; Activations</a>
+            <a href="hyperlocal-marketing.html">Hyperlocal Marketing</a>
+            <a href="mall-multiplex-advertising.html">Mall &amp; Multiplex</a>
+            <a href="event-exhibition.html">Events &amp; Exhibitions</a>
+          </div>
+          <div class="dropdown-col">
+            <span class="dropdown-heading">Strategy &amp; Production</span>
+            <a href="media-planning.html">Media Planning</a>
+            <a href="experiential-marketing.html">Experiential Branding</a>
+            <a href="branding-production.html">Fabrication &amp; Production</a>
+            <a href="corporate-office-branding.html">Corporate Signage</a>
+            <a href="retail-branding.html">Retail &amp; Facade</a>
+            <a href="political-advertising.html">Political Campaigns</a>
+            <a href="print-advertising.html">Print Media</a>
+          </div>
         </div>
       </div>
       <a href="case-studies.html">Work &amp; Proof</a>
@@ -83,23 +90,83 @@
   <div class="grid-2">
     <div class="content-box reveal">
       <form>
-        <div class="form-group">
-          <label>Name</label>
-          <input type="text" placeholder="Jane Doe">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+          <div class="form-group">
+            <label>Campaign Type</label>
+            <select style="width:100%; padding:10px 14px; border:1px solid var(--line); border-radius:6px; font-size:0.9375rem; background:#fff;">
+              <option value="">Select campaign type...</option>
+              <option>Brand Launch & Visibility</option>
+              <option>Lead Generation & Footfall</option>
+              <option>Store / Retail Opening</option>
+              <option>Product Launch</option>
+              <option>Political / Election</option>
+              <option>Event / Exhibition</option>
+              <option>Hyperlocal Dominance</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Target City</label>
+            <select style="width:100%; padding:10px 14px; border:1px solid var(--line); border-radius:6px; font-size:0.9375rem; background:#fff;">
+              <option value="">Select target market...</option>
+              <option>Delhi NCR</option>
+              <option>Mumbai</option>
+              <option>Bengaluru</option>
+              <option>Hyderabad</option>
+              <option>Pune</option>
+              <option>Chennai</option>
+              <option>Kolkata</option>
+              <option>Ahmedabad</option>
+              <option>Pan-India Multi-City</option>
+              <option>Other</option>
+            </select>
+          </div>
         </div>
-        <div class="form-group">
-          <label>Company</label>
-          <input type="text" placeholder="Acme Corp">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+          <div class="form-group">
+            <label>Approximate Budget</label>
+            <select style="width:100%; padding:10px 14px; border:1px solid var(--line); border-radius:6px; font-size:0.9375rem; background:#fff;">
+              <option value="">Select budget range...</option>
+              <option>Under ₹2 Lakhs</option>
+              <option>₹2L – ₹5 Lakhs</option>
+              <option>₹5L – ₹15 Lakhs</option>
+              <option>₹15L – ₹50 Lakhs</option>
+              <option>₹50 Lakhs+</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Launch Timeline</label>
+            <select style="width:100%; padding:10px 14px; border:1px solid var(--line); border-radius:6px; font-size:0.9375rem; background:#fff;">
+              <option value="">When do you need to launch?</option>
+              <option>Immediately (within 1 week)</option>
+              <option>This month</option>
+              <option>Within 1–2 months</option>
+              <option>Within 3+ months</option>
+              <option>Just exploring</option>
+            </select>
+          </div>
         </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" placeholder="jane@example.com">
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+          <div class="form-group">
+            <label>Name</label>
+            <input type="text" placeholder="Your full name">
+          </div>
+          <div class="form-group">
+            <label>Company / Brand</label>
+            <input type="text" placeholder="Company name">
+          </div>
         </div>
-        <div class="form-group">
-          <label>Campaign Details</label>
-          <textarea rows="4" placeholder="Tell us about your target cities and goals..."></textarea>
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
+          <div class="form-group">
+            <label>Phone / WhatsApp</label>
+            <input type="tel" placeholder="+91 98765 43210">
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input type="email" placeholder="you@company.com">
+          </div>
         </div>
-        <button type="submit" class="btn btn-primary" style="border:none; cursor:pointer;">Submit Request <span class="arw">→</span></button>
+        <button type="submit" class="btn btn-primary" style="border:none; cursor:pointer; width:100%; padding:14px;">Submit Campaign Enquiry <span class="arw">→</span></button>
       </form>
     </div>
     <div class="content-box reveal" data-d="1" style="background:var(--blue); color:#fff; border:none;">
