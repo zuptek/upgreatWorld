@@ -201,7 +201,7 @@ def generate_content():
   <div class="wrap">
     <span class="sec-eyebrow reveal">About Us</span>
     <h1 class="reveal" data-d="1">One Group, Infinite Possibilities.</h1>
-    <p class="reveal" data-d="2">UpGreat World is India’s premier full‑spectrum advertising agency and multi‑vertical business group operating across media, exhibitions, employment, and international trade.</p>
+    <p class="reveal" data-d="2">UpGreat World is a full‑spectrum advertising agency and multi‑vertical business group operating across media, exhibitions, employment, and international trade.</p>
   </div>
 </section>
 <section class="inner-content wrap">
@@ -220,7 +220,7 @@ def generate_content():
 </section>
 """
     generate('about.html', 'About Us | UpGreat World', about_content,
-             "UpGreat World is India’s premier full‑spectrum advertising agency operating across media, exhibitions, and trade.")
+             "UpGreat World is a full‑spectrum advertising agency operating across media, exhibitions, and trade.")
 
     # 2. Services Page
     services_content = """
@@ -411,7 +411,7 @@ def generate_content():
                 body_html += "      </ul>\n"
             else:
                 body_html += """      <h3>Ready to dominate?</h3>
-      <p>Book a high-impact campaign with India's premier advertising network today. We handle all planning, deployment, fabrication, and audits.</p>
+      <p>Book a high-impact campaign with our pan-India advertising network today. We handle all planning, deployment, fabrication, and audits.</p>
       <a href="contact.html" class="btn btn-primary" style="margin-top: 16px;">Start a campaign <span class="arw">→</span></a>
 """
             body_html += """    </div>

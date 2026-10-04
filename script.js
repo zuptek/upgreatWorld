@@ -26,12 +26,31 @@ if (anncX) {
   const brands=['Nova Realty','MetroMart','ZenCab','Aarav Foods','Tila Group','Vayu Mobility','Playhouse Retail','Suryā Power','Bharat Motors','Metro Express'];
   const lt=document.getElementById('logoTrack');
   if (lt) {
-    let ls='';for(let k=0;k<2;k++)brands.forEach(b=>ls+=`<span>${b}</span>`);lt.innerHTML=ls;
+    lt.textContent = '';
+    for (let k = 0; k < 2; k++) {
+      brands.forEach(b => {
+        const span = document.createElement('span');
+        span.textContent = b;
+        lt.appendChild(span);
+      });
+    }
   }
 
   // cities marquee
   const cities=['Delhi NCR','Mumbai','Bengaluru','Hyderabad','Chennai','Kolkata','Pune','Ahmedabad','Jaipur','Lucknow','Chandigarh','Indore','Kochi','Surat','Nagpur','Bhopal','Coimbatore','Noida','Gurugram','Guwahati'];
-  const fill=(el,list)=>{if(el){let s='';for(let k=0;k<2;k++)list.forEach(c=>s+=`<span class="city">${c}</span>`);el.innerHTML=s;}};
+  const fill=(el,list)=>{
+    if(el){
+      el.textContent = '';
+      for(let k=0;k<2;k++){
+        list.forEach(c=>{
+          const span = document.createElement('span');
+          span.className = 'city';
+          span.textContent = c;
+          el.appendChild(span);
+        });
+      }
+    }
+  };
   fill(document.getElementById('cr1'),cities.slice(0,10));
   fill(document.getElementById('cr2'),cities.slice(10));
 
@@ -45,11 +64,20 @@ if (anncX) {
     if (isNaN(target)) return;
     const dur=1400,t0=performance.now();
     const uEl=el.querySelector('.u');
-    const u=uEl?uEl.outerHTML:'';
+    const uText=uEl?uEl.textContent:'';
+    const textNode=document.createTextNode('');
+    el.textContent='';
+    el.appendChild(textNode);
+    if(uEl){
+      const uSpan=document.createElement('span');
+      uSpan.className='u';
+      uSpan.textContent=uText;
+      el.appendChild(uSpan);
+    }
     const step=(now)=>{
       const p=Math.min((now-t0)/dur,1);
       const val=Math.floor((1-Math.pow(1-p,3))*target);
-      el.innerHTML=val+u;
+      textNode.nodeValue=val;
       if(p<1)requestAnimationFrame(step);
     };
     requestAnimationFrame(step);

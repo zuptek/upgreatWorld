@@ -82,90 +82,43 @@
     <span class="sec-eyebrow reveal">Get in Touch</span>
     <h1 class="reveal" data-d="1">Plan Your Campaign.</h1>
     <p class="reveal" data-d="2">Tell us your market, audience and goal — we'll come back with a real-world plan that can't be scrolled past.</p>
-    <div class="reveal" data-d="3" style="margin-top: 24px;">
-      <a href="campaign.html" class="btn btn-primary">Use Interactive Campaign Builder <span class="arw">→</span></a>
-    </div>
   </div>
 </section>
 <section class="inner-content wrap">
   <div class="grid-2">
     <div class="content-box reveal">
-      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
-        <h3 style="margin:0;">Quick Contact Form</h3>
-        <span style="font-family:var(--font-mono); font-size:0.75rem; background:#E6F4EA; color:#137333; padding:4px 8px; border-radius:4px; font-weight:600;">⚡ 1 Business Day Verified Response</span>
-      </div>
-      <form id="quickContactForm" style="margin-top: 16px;">
+      <form>
         <div class="form-group">
-          <label for="cName">Your Name *</label>
-          <input type="text" id="cName" required placeholder="Jane Doe">
+          <label>Name</label>
+          <input type="text" placeholder="Jane Doe">
         </div>
         <div class="form-group">
-          <label for="cCompany">Company / Brand *</label>
-          <input type="text" id="cCompany" required placeholder="Acme Corp">
+          <label>Company</label>
+          <input type="text" placeholder="Acme Corp">
         </div>
         <div class="form-group">
-          <label for="cEmail">Work Email *</label>
-          <input type="email" id="cEmail" required placeholder="jane@example.com">
+          <label>Email</label>
+          <input type="email" placeholder="jane@example.com">
         </div>
         <div class="form-group">
-          <label for="cPhone">Phone / WhatsApp *</label>
-          <input type="tel" id="cPhone" required placeholder="+91 98765 43210">
+          <label>Campaign Details</label>
+          <textarea rows="4" placeholder="Tell us about your target cities and goals..."></textarea>
         </div>
-        <div class="form-group">
-          <label for="cDetails">Campaign Details &amp; Target Cities</label>
-          <textarea id="cDetails" rows="4" placeholder="Tell us about your target markets, campaign goals, or format preferences..."></textarea>
-        </div>
-        <button type="submit" id="btnContactSubmit" class="btn btn-primary" style="border:none; cursor:pointer; width:100%; justify-content:center; padding:14px; font-size:1rem;">Submit Request for Verified Plan <span class="arw">→</span></button>
+        <button type="submit" class="btn btn-primary" style="border:none; cursor:pointer;">Submit Request <span class="arw">→</span></button>
       </form>
-      <div id="contactFormStatus" style="margin-top:16px;"></div>
     </div>
-    <div class="content-box reveal" data-d="1" style="background:var(--ink); color:#fff; border:none;">
-      <h3 style="color:#fff;">Direct Contacts</h3>
-      <p style="color:rgba(255,255,255,0.8);">Reach out to our pan-India campaign strategy team directly.</p>
+    <div class="content-box reveal" data-d="1" style="background:var(--blue); color:#fff; border:none;">
+      <h3 style="color:#fff;">Contact Details</h3>
+      <p style="color:rgba(255,255,255,0.8);">Reach out to our pan-India team directly.</p>
       <br>
-      <p style="color:#fff;"><strong>Email:</strong><br><a href="mailto:connect@upgreatworld.com" style="color:var(--accent);">connect@upgreatworld.com</a></p>
-      <p style="color:#fff; margin-top: 16px;"><strong>Gurugram Office:</strong><br>Welldone Tech Park, Sector 48, Gurugram – 122018<br>Phone: <a href="tel:+919891296555" style="color:var(--accent);">+91 98912 96555</a></p>
-      <p style="color:#fff; margin-top: 16px;"><strong>Mumbai Office:</strong><br>128, Master Mind, Aarey Colony, Goregaon (E), Mumbai, Maharashtra 400065<br>Phone: <a href="tel:+919355666604" style="color:var(--accent);">+91 93556 66604</a></p>
-      <a href="https://wa.me/919891296555" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 24px; background:#25D366; color:#fff; width:100%; justify-content:center;">Chat with us on WhatsApp <span class="arw">→</span></a>
+      <p style="color:#fff;"><strong>Email:</strong><br><a href="mailto:connect@upgreatworld.com">connect@upgreatworld.com</a></p>
+      <p style="color:#fff; margin-top: 16px;"><strong>Headquarters:</strong><br>Gurugram, Haryana, India</p>
+      <p style="color:#fff; margin-top: 16px;"><strong>Gurugram Office:</strong><br>Welldone Tech Park, Sector 48, Gurugram – 122018<br>Phone: <a href="tel:+919891296555">+91 98912 96555</a></p>
+      <p style="color:#fff; margin-top: 16px;"><strong>Mumbai Office:</strong><br>128, Master Mind, Aarey Colony, Goregaon (E), Mumbai, Maharashtra 400065<br>Phone: <a href="tel:+919355666604">+91 93556 66604</a></p>
+      <a href="https://wa.me/919891296555" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 24px;">Chat with us on WhatsApp <span class="arw">→</span></a>
     </div>
   </div>
 </section>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const urlParams = new URLSearchParams(window.location.search);
-    const service = urlParams.get('service');
-    const city = urlParams.get('city');
-    const detailsField = document.getElementById('cDetails');
-    if (detailsField && (service || city)) {
-      let pref = 'Interested in planning a campaign';
-      if (service) pref += ` for ${service}`;
-      if (city) pref += ` in ${city}`;
-      pref += '. Please share available inventory and rates.';
-      detailsField.value = pref;
-    }
-
-    const form = document.getElementById('quickContactForm');
-    const statusDiv = document.getElementById('contactFormStatus');
-    if (form) {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        const name = document.getElementById('cName').value;
-        const company = document.getElementById('cCompany').value;
-        const email = document.getElementById('cEmail').value;
-
-        if (statusDiv) {
-          statusDiv.innerHTML = `
-            <div style="background:#E7FF3F; color:#111; padding:16px; border-radius:8px; font-weight:600; font-size:0.95rem; line-height:1.4;">
-              🎉 Request received for <strong>${company}</strong>! Thank you, ${name}. Our planning team will deliver your verified site-level plan to <strong>${email}</strong> within 1 business day.
-            </div>
-          `;
-        }
-        form.reset();
-      });
-    }
-  });
-</script>
 
 <!-- WHATSAPP-FAB -->
 <a class="wa-fab" href="https://wa.me/919891296555" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp" title="Chat on WhatsApp">
@@ -178,7 +131,7 @@
     <div class="foot-top">
       <div class="foot-brand">
         <a href="index.html" class="brand"><video src="assets/logo.MP4" autoplay loop muted playsinline class="mark" style="object-fit: cover; border-radius: 0.25rem;"></video>UpGreat World</a>
-        <p>India's premier full-spectrum advertising agency. Making brands unmissable in the real world.</p>
+        <p>Pan-India OOH, transit &amp; experiential advertising agency. Making brands unmissable in the real world.</p>
       </div>
       <div class="foot-col">
         <h4>Media Services</h4>
@@ -218,9 +171,6 @@
     <div class="foot-bot"><p>© 2026 UpGreat World Pvt Ltd</p><p>Be unmissable in the real world.</p></div>
   </div>
 </footer>
-
-<script src="js/config.js" defer></script>
 <script src="script.js?v=3" defer></script>
 </body>
 </html>
-
