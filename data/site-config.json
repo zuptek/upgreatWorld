@@ -7,15 +7,17 @@
   "stats": {
     "campaigns": "500+",
     "campaignsRaw": 500,
+    "campaignsScope": "Across OOH, transit, BTL & experiential (cumulative)",
     "cities": "20+",
     "citiesRaw": 20,
+    "citiesScope": "Key Indian metros & Tier-1 commercial hubs",
     "mediaDisciplines": "7",
     "mediaDisciplinesRaw": 7,
     "verifiedExecution": "98%",
     "verifiedExecutionRaw": 98
   },
   "contact": {
-    "email": "hello@upgreatworld.com",
+    "email": "connect@upgreatworld.com",
     "phones": [
       { "city": "Gurugram", "number": "+91 98912 96555", "tel": "+919891296555" },
       { "city": "Mumbai", "number": "+91 93556 66604", "tel": "+919355666604" }

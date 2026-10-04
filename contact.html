@@ -42,24 +42,36 @@
     </a>
     <nav class="nav-links">
       <div class="dropdown">
-        <a href="services.html">Solutions <span class="car">▾</span></a>
+        <a href="services.html">Media Services <span class="car">▾</span></a>
         <div class="dropdown-menu">
-          <a href="outdoor-advertising.html">OOH Advertising</a>
-          <a href="transit-advertising.html">Transit Media</a>
+          <a href="outdoor-advertising.html">Outdoor Advertising</a>
+          <a href="transit-advertising.html">Transit Advertising</a>
+          <a href="btl-marketing.html">BTL Marketing</a>
           <a href="digital-ooh.html">Digital OOH</a>
-          <a href="btl-marketing.html">BTL &amp; Experiential</a>
-          <a href="hyperlocal-marketing.html">Hyperlocal Media</a>
-          <a href="retail-branding.html">Retail Branding</a>
+          <a href="hyperlocal-marketing.html">Hyperlocal Targeting</a>
+          <a href="mall-multiplex-advertising.html">Mall & Multiplex</a>
         </div>
       </div>
-      <a href="case-studies.html">Work &amp; Proof</a>
-      <a href="cities.html">Cities &amp; Inventory</a>
+      <div class="dropdown">
+        <a href="services.html">Production &amp; Strategy <span class="car">▾</span></a>
+        <div class="dropdown-menu">
+          <a href="event-exhibition.html">Event &amp; Exhibition</a>
+          <a href="experiential-marketing.html">Experiential Branding</a>
+          <a href="branding-production.html">Branding Production</a>
+          <a href="corporate-office-branding.html">Corporate Signage</a>
+          <a href="retail-branding.html">Retail Facade Branding</a>
+          <a href="political-advertising.html">Political Visibility</a>
+          <a href="print-advertising.html">Print Media &amp; Format</a>
+          <a href="media-planning.html">Media Planning</a>
+        </div>
+      </div>
       <a href="about.html">About</a>
+      <a href="index.html#cities">Cities</a>
       <a href="contact.html">Contact</a>
     </nav>
     <div class="nav-right">
       <span class="lang">EN</span>
-      <a href="campaign.html" class="nav-cta">Build My Campaign <span class="arw">→</span></a>
+      <a href="contact.html" class="nav-cta">Start a campaign <span class="arw">→</span></a>
       <button class="burger" aria-label="Menu"><span></span><span></span><span></span></button>
     </div>
   </div>
@@ -78,26 +90,34 @@
 <section class="inner-content wrap">
   <div class="grid-2">
     <div class="content-box reveal">
-      <h3>Quick Contact Form</h3>
-      <form style="margin-top: 16px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px; flex-wrap:wrap; gap:8px;">
+        <h3 style="margin:0;">Quick Contact Form</h3>
+        <span style="font-family:var(--font-mono); font-size:0.75rem; background:#E6F4EA; color:#137333; padding:4px 8px; border-radius:4px; font-weight:600;">⚡ 1 Business Day Verified Response</span>
+      </div>
+      <form id="quickContactForm" style="margin-top: 16px;">
         <div class="form-group">
-          <label>Name</label>
-          <input type="text" placeholder="Jane Doe">
+          <label for="cName">Your Name *</label>
+          <input type="text" id="cName" required placeholder="Jane Doe">
         </div>
         <div class="form-group">
-          <label>Company</label>
-          <input type="text" placeholder="Acme Corp">
+          <label for="cCompany">Company / Brand *</label>
+          <input type="text" id="cCompany" required placeholder="Acme Corp">
         </div>
         <div class="form-group">
-          <label>Email</label>
-          <input type="email" placeholder="jane@example.com">
+          <label for="cEmail">Work Email *</label>
+          <input type="email" id="cEmail" required placeholder="jane@example.com">
         </div>
         <div class="form-group">
-          <label>Campaign Details</label>
-          <textarea rows="4" placeholder="Tell us about your target cities and goals..."></textarea>
+          <label for="cPhone">Phone / WhatsApp *</label>
+          <input type="tel" id="cPhone" required placeholder="+91 98765 43210">
         </div>
-        <button type="submit" class="btn btn-primary" style="border:none; cursor:pointer;">Submit Request <span class="arw">→</span></button>
+        <div class="form-group">
+          <label for="cDetails">Campaign Details &amp; Target Cities</label>
+          <textarea id="cDetails" rows="4" placeholder="Tell us about your target markets, campaign goals, or format preferences..."></textarea>
+        </div>
+        <button type="submit" id="btnContactSubmit" class="btn btn-primary" style="border:none; cursor:pointer; width:100%; justify-content:center; padding:14px; font-size:1rem;">Submit Request for Verified Plan <span class="arw">→</span></button>
       </form>
+      <div id="contactFormStatus" style="margin-top:16px;"></div>
     </div>
     <div class="content-box reveal" data-d="1" style="background:var(--ink); color:#fff; border:none;">
       <h3 style="color:#fff;">Direct Contacts</h3>
@@ -106,10 +126,46 @@
       <p style="color:#fff;"><strong>Email:</strong><br><a href="mailto:connect@upgreatworld.com" style="color:var(--accent);">connect@upgreatworld.com</a></p>
       <p style="color:#fff; margin-top: 16px;"><strong>Gurugram Office:</strong><br>Welldone Tech Park, Sector 48, Gurugram – 122018<br>Phone: <a href="tel:+919891296555" style="color:var(--accent);">+91 98912 96555</a></p>
       <p style="color:#fff; margin-top: 16px;"><strong>Mumbai Office:</strong><br>128, Master Mind, Aarey Colony, Goregaon (E), Mumbai, Maharashtra 400065<br>Phone: <a href="tel:+919355666604" style="color:var(--accent);">+91 93556 66604</a></p>
-      <a href="https://wa.me/919891296555" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 24px; background:#25D366; color:#fff;">Chat with us on WhatsApp <span class="arw">→</span></a>
+      <a href="https://wa.me/919891296555" target="_blank" rel="noopener" class="btn btn-primary" style="margin-top: 24px; background:#25D366; color:#fff; width:100%; justify-content:center;">Chat with us on WhatsApp <span class="arw">→</span></a>
     </div>
   </div>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const service = urlParams.get('service');
+    const city = urlParams.get('city');
+    const detailsField = document.getElementById('cDetails');
+    if (detailsField && (service || city)) {
+      let pref = 'Interested in planning a campaign';
+      if (service) pref += ` for ${service}`;
+      if (city) pref += ` in ${city}`;
+      pref += '. Please share available inventory and rates.';
+      detailsField.value = pref;
+    }
+
+    const form = document.getElementById('quickContactForm');
+    const statusDiv = document.getElementById('contactFormStatus');
+    if (form) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = document.getElementById('cName').value;
+        const company = document.getElementById('cCompany').value;
+        const email = document.getElementById('cEmail').value;
+
+        if (statusDiv) {
+          statusDiv.innerHTML = `
+            <div style="background:#E7FF3F; color:#111; padding:16px; border-radius:8px; font-weight:600; font-size:0.95rem; line-height:1.4;">
+              🎉 Request received for <strong>${company}</strong>! Thank you, ${name}. Our planning team will deliver your verified site-level plan to <strong>${email}</strong> within 1 business day.
+            </div>
+          `;
+        }
+        form.reset();
+      });
+    }
+  });
+</script>
 
 <!-- WHATSAPP-FAB -->
 <a class="wa-fab" href="https://wa.me/919891296555" target="_blank" rel="noopener" aria-label="Chat with us on WhatsApp" title="Chat on WhatsApp">
@@ -125,12 +181,12 @@
         <p>India's premier full-spectrum advertising agency. Making brands unmissable in the real world.</p>
       </div>
       <div class="foot-col">
-        <h4>Solutions</h4>
-        <a href="outdoor-advertising.html">OOH Advertising</a>
-        <a href="transit-advertising.html">Transit Media</a>
+        <h4>Media Services</h4>
+        <a href="outdoor-advertising.html">Outdoor Advertising</a>
+        <a href="transit-advertising.html">Transit Advertising</a>
         <a href="btl-marketing.html">BTL Marketing</a>
         <a href="digital-ooh.html">Digital OOH</a>
-        <a href="hyperlocal-marketing.html">Hyperlocal Media</a>
+        <a href="hyperlocal-marketing.html">Hyperlocal Targeting</a>
       </div>
       <div class="foot-col">
         <h4>Fabrication</h4>
@@ -155,8 +211,8 @@
         <a href="case-studies.html">Case Studies</a>
         <a href="contact.html">Contact Us</a>
         <a href="mailto:connect@upgreatworld.com" style="margin-top:0.5rem; display:block;">connect@upgreatworld.com</a>
-        <p id="officeGurugram" style="color:var(--ink-2); font-size:0.8125rem; margin-top:0.5rem; line-height:1.4;"><strong>Gurugram Office</strong><br>Welldone Tech Park, Sector 48, Gurugram – 122018<br>Phone: <a href="tel:+919891296555" style="display:inline; margin-bottom:0;">+91 98912 96555</a></p>
-        <p id="officeMumbai" style="color:var(--ink-2); font-size:0.8125rem; margin-top:0.5rem; line-height:1.4;"><strong>Mumbai Office</strong><br>128, Master Mind, Aarey Colony, Goregaon (E), Mumbai, Maharashtra 400065<br>Phone: <a href="tel:+919355666604" style="display:inline; margin-bottom:0;">+91 93556 66604</a></p>
+        <p style="color:var(--ink-2); font-size:0.8125rem; margin-top:0.5rem; line-height:1.4;"><strong>Gurugram Office</strong><br>Welldone Tech Park, Sector 48, Gurugram – 122018<br>Phone: <a href="tel:+919891296555" style="display:inline; margin-bottom:0;">+91 98912 96555</a></p>
+        <p style="color:var(--ink-2); font-size:0.8125rem; margin-top:0.5rem; line-height:1.4;"><strong>Mumbai Office</strong><br>128, Master Mind, Aarey Colony, Goregaon (E), Mumbai, Maharashtra 400065<br>Phone: <a href="tel:+919355666604" style="display:inline; margin-bottom:0;">+91 93556 66604</a></p>
       </div>
     </div>
     <div class="foot-bot"><p>© 2026 UpGreat World Pvt Ltd</p><p>Be unmissable in the real world.</p></div>

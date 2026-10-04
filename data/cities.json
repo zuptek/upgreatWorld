@@ -118,5 +118,185 @@
       "hyperlocal": 110
     },
     "keyCatchments": ["SG Highway Stretch", "GIFT City Access Road", "Prahlad Nagar Corporate Road", "CG Road"]
+  },
+  {
+    "id": "jaipur",
+    "name": "Jaipur",
+    "region": "North India",
+    "totalSites": 480,
+    "highlights": "MI Road, Tonk Road, JLN Marg, Airport Expressway",
+    "formats": {
+      "outdoor": 180,
+      "transit": 110,
+      "dooh": 60,
+      "mall": 40,
+      "hyperlocal": 90
+    },
+    "keyCatchments": ["MI Road Commercial Hub", "Tonk Road Arterial", "JLN Marg Tech & Educational Belt", "Vaishali Nagar High Street"]
+  },
+  {
+    "id": "lucknow",
+    "name": "Lucknow",
+    "region": "North India",
+    "totalSites": 450,
+    "highlights": "Hazratganj, Gomti Nagar Shaheed Path, Charbagh Metro, IT City Corridor",
+    "formats": {
+      "outdoor": 170,
+      "transit": 100,
+      "dooh": 55,
+      "mall": 45,
+      "hyperlocal": 80
+    },
+    "keyCatchments": ["Gomti Nagar Extension", "Hazratganj High Street", "Shaheed Path Bypass", "Alambagh Transit Hub"]
+  },
+  {
+    "id": "chandigarh",
+    "name": "Chandigarh",
+    "region": "North India",
+    "totalSites": 390,
+    "highlights": "Sector 17 Plaza, Madhya Marg, Zirakpur Highway, Mohali IT City",
+    "formats": {
+      "outdoor": 140,
+      "transit": 85,
+      "dooh": 50,
+      "mall": 40,
+      "hyperlocal": 75
+    },
+    "keyCatchments": ["Sector 17 Commercial Center", "Madhya Marg Arterial", "Mohali Airport Road", "Zirakpur Flyover"]
+  },
+  {
+    "id": "indore",
+    "name": "Indore",
+    "region": "Central India",
+    "totalSites": 420,
+    "highlights": "AB Road, Vijay Nagar Square, Super Corridor, Palasia Circle",
+    "formats": {
+      "outdoor": 160,
+      "transit": 95,
+      "dooh": 50,
+      "mall": 35,
+      "hyperlocal": 80
+    },
+    "keyCatchments": ["Vijay Nagar High Street", "AB Road Commercial Corridor", "Super Corridor Airport Link", "Palasia Square"]
+  },
+  {
+    "id": "kochi",
+    "name": "Kochi",
+    "region": "South India",
+    "totalSites": 360,
+    "highlights": "MG Road, Edappally Lulu Junction, Infopark Kakkanad, Metro Pillars",
+    "formats": {
+      "outdoor": 130,
+      "transit": 80,
+      "dooh": 50,
+      "mall": 40,
+      "hyperlocal": 60
+    },
+    "keyCatchments": ["Edappally Lulu Mall Corridor", "MG Road Commercial Stretch", "Kakkanad Infopark IT Belt", "Marine Drive"]
+  },
+  {
+    "id": "surat",
+    "name": "Surat",
+    "region": "West India",
+    "totalSites": 440,
+    "highlights": "Ring Road, Dumas Road, Textile Market Hub, Airport Expressway",
+    "formats": {
+      "outdoor": 165,
+      "transit": 100,
+      "dooh": 55,
+      "mall": 40,
+      "hyperlocal": 80
+    },
+    "keyCatchments": ["Dumas Road Retail Belt", "Ring Road Diamond Market", "Ghod Dod Road High Street", "Vesu Corporate Belt"]
+  },
+  {
+    "id": "nagpur",
+    "name": "Nagpur",
+    "region": "Central India",
+    "totalSites": 350,
+    "highlights": "Wardha Road, Sitabuldi, MIHAN IT Hub, Metro Rail Transit",
+    "formats": {
+      "outdoor": 130,
+      "transit": 80,
+      "dooh": 45,
+      "mall": 35,
+      "hyperlocal": 60
+    },
+    "keyCatchments": ["Wardha Road Express Corridor", "Sitabuldi Market", "MIHAN SEZ Gateway", "Civil Lines"]
+  },
+  {
+    "id": "bhopal",
+    "name": "Bhopal",
+    "region": "Central India",
+    "totalSites": 320,
+    "highlights": "MP Nagar, Hoshangabad Road, VIP Road, DB City Mall Hub",
+    "formats": {
+      "outdoor": 120,
+      "transit": 70,
+      "dooh": 40,
+      "mall": 30,
+      "hyperlocal": 60
+    },
+    "keyCatchments": ["MP Nagar Zone I & II", "Hoshangabad Road Retail Corridor", "VIP Road Lake Belt", "Arera Colony"]
+  },
+  {
+    "id": "coimbatore",
+    "name": "Coimbatore",
+    "region": "South India",
+    "totalSites": 310,
+    "highlights": "Avinashi Road, DB Road R.S. Puram, TIDEL Park IT Hub, Trichy Road",
+    "formats": {
+      "outdoor": 115,
+      "transit": 70,
+      "dooh": 40,
+      "mall": 30,
+      "hyperlocal": 55
+    },
+    "keyCatchments": ["Avinashi Road IT Belt", "R.S. Puram Shopping Corridor", "TIDEL Park Gateway", "Gandhipuram Bus Stand"]
+  },
+  {
+    "id": "guwahati",
+    "name": "Guwahati",
+    "region": "East India",
+    "totalSites": 280,
+    "highlights": "GS Road, Zoo Road, Ganeshguri Junction, Jalukbari Flyover",
+    "formats": {
+      "outdoor": 110,
+      "transit": 60,
+      "dooh": 35,
+      "mall": 25,
+      "hyperlocal": 50
+    },
+    "keyCatchments": ["GS Road Commercial Gateway", "Ganeshguri Transit Hub", "Zoo Road Retail Belt", "Jalukbari Circle"]
+  },
+  {
+    "id": "gurugram",
+    "name": "Gurugram",
+    "region": "North India",
+    "totalSites": 620,
+    "highlights": "Golf Course Extension, Cyber City, MG Road Mall Mile, Sohna Road",
+    "formats": {
+      "outdoor": 210,
+      "transit": 140,
+      "dooh": 110,
+      "mall": 60,
+      "hyperlocal": 100
+    },
+    "keyCatchments": ["Golf Course Road Luxury Belt", "Cyber City Corporate Hub", "Sohna Road Tech Park", "Rapid Metro Stations"]
+  },
+  {
+    "id": "noida",
+    "name": "Noida",
+    "region": "North India",
+    "totalSites": 580,
+    "highlights": "Noida-Greater Noida Expressway, Sector 18 Market, DND Flyway, Film City",
+    "formats": {
+      "outdoor": 195,
+      "transit": 130,
+      "dooh": 100,
+      "mall": 55,
+      "hyperlocal": 100
+    },
+    "keyCatchments": ["Sector 18 Commercial Hub", "Expressway Tech Parks", "DND Entry Toll", "Greater Noida West Corridor"]
   }
 ]

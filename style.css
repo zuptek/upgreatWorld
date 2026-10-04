@@ -555,22 +555,22 @@
     flex-wrap: wrap;
     margin-top: 16px;
   }
-  .fmt-btn {
+  .fmt-btn, .reg-btn {
     background: #ffffff;
     border: 1px solid var(--line);
     border-radius: 3px;
-    padding: 8px 14px;
+    padding: 6px 12px;
     font-size: 13px;
     font-family: var(--mono);
     color: var(--ink-2);
     cursor: pointer;
     transition: all 0.2s;
   }
-  .fmt-btn:hover {
+  .fmt-btn:hover, .reg-btn:hover {
     border-color: var(--blue);
     color: var(--ink);
   }
-  .fmt-btn.active {
+  .fmt-btn.active, .reg-btn.active {
     background: var(--ink);
     border-color: var(--ink);
     color: #ffffff;
