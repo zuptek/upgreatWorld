@@ -200,34 +200,39 @@ def generate_content():
 <section class="inner-hero">
   <div class="wrap">
     <span class="sec-eyebrow reveal">About Us</span>
-    <h1 class="reveal" data-d="1">One Group, Infinite Possibilities.</h1>
-    <p class="reveal" data-d="2">UpGreat World is a full‑spectrum advertising agency and multi‑vertical business group operating across media, exhibitions, employment, and international trade.</p>
+    <h1 class="reveal" data-d="1">Real-World Media Execution Across India.</h1>
+    <p class="reveal" data-d="2">UpGreat World plans and executes OOH, transit, DOOH, BTL, and experiential campaigns across 20+ key urban markets.</p>
   </div>
 </section>
 <section class="inner-content wrap">
   <div class="grid-2">
     <div class="content-box reveal">
-      <h3>Pan-India Scale</h3>
-      <p>With 500+ successful campaigns executed across 20+ cities including Delhi‑NCR, Mumbai, Bangalore, Hyderabad, Chennai, Kolkata, Pune, and Ahmedabad.</p>
-      <p>We provide large‑scale physical visibility for brands of "every size" — from local disruptors to national giants.</p>
+      <h3>Who We Are</h3>
+      <p>We are a Pan-India advertising and media execution partner built for modern B2B marketing teams, brand managers, and agency buyers.</p>
+      <p>We provide large‑scale physical visibility with site-level planning, transparent inventory mapping, and certified photo proof of display.</p>
     </div>
     <div class="content-box reveal" data-d="1">
-      <h3>15+ Specialized Verticals</h3>
-      <p>We bring outdoor, transit, BTL, DOOH, political PR, social media, exhibitions & trade shows, employment platforms, and international trade under one roof.</p>
-      <p>We partner with marketing heads, brand managers, CMOs, founders, and political campaign teams in real estate, FMCG, retail, fintech, BFSI, healthcare, ecommerce, education, hospitality, and more.</p>
+      <h3>How We Work</h3>
+      <p style="font-weight: 600; color: var(--brand);">Brief → Plan → Inventory → Production → Deployment → Verification → Reporting</p>
+      <p>Our operational field network covers 20+ cities, ensuring rapid 24/7 turnaround on fabrication, mounting, maintenance, and audit compliance.</p>
     </div>
+  </div>
+  <div class="content-box reveal" style="margin-top: 2rem;">
+    <span class="sec-eyebrow">Corporate Group</span>
+    <h3 style="margin-top: 0.5rem;">Part of the UpGreat Group</h3>
+    <p>UpGreat World is the media & experiential advertising arm of UpGreat Group — operating across media execution, trade exhibitions, employment platforms, and international trade.</p>
   </div>
 </section>
 """
     generate('about.html', 'About Us | UpGreat World', about_content,
-             "UpGreat World is a full‑spectrum advertising agency operating across media, exhibitions, and trade.")
+             "UpGreat World plans and executes OOH, transit, DOOH, BTL, and experiential campaigns across India.")
 
     # 2. Services Page
     services_content = """
 <section class="inner-hero">
   <div class="wrap">
     <span class="sec-eyebrow reveal">Our Verticals</span>
-    <h1 class="reveal" data-d="1">15+ Specialized Services Under One Roof.</h1>
+    <h1 class="reveal" data-d="1">8 Core Solutions. 15+ Specialized Capabilities.</h1>
     <p class="reveal" data-d="2">Explore our core pillars of real-world visibility and brand dominance.</p>
   </div>
 </section>
