@@ -7,10 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
   const plannerContainer = document.getElementById('campaignPlanner');
   if (!plannerContainer) return;
 
+  const urlParams = new URLSearchParams(window.location.search);
+  const initialCity = urlParams.get('city');
+
   const plannerState = {
     step: 1, // 1: Brief Inputs, 2: Contact Details, 3: Indicative Media Mix & SLA Commitment
     objective: 'brand-launch',
-    cities: ['Delhi NCR'],
+    cities: initialCity ? [initialCity] : ['Delhi NCR'],
     formats: ['ooh-billboards', 'digital-ooh'],
     duration: '30 Days (Standard)',
     budget: '₹5 Lakhs – ₹15 Lakhs',
@@ -391,7 +394,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (btnSubmitAPI) {
       btnSubmitAPI.addEventListener('click', async () => {
-        if (statusDiv) statusDiv.innerHTML = '<div class="alert info" style="background:#F3F4F6; padding:12px; border-radius:6px; color:#374151;">Recording campaign brief...</div>';
+        if (statusDiv) statusDiv.innerHTML = '<div class="alert info" style="background:#F3F4F6; padding:12px; border-radius:6px; color:#374151;">Recording campaign brief & attribution metadata...</div>';
+        const attribution = window.UpGreatAttribution ? window.UpGreatAttribution.getMetadata() : {};
         try {
           // Attempt lead API endpoint call
           await fetch('/api/campaign-leads', {
@@ -399,7 +403,8 @@ document.addEventListener('DOMContentLoaded', () => {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({
               timestamp: new Date().toISOString(),
-              ...plannerState
+              ...plannerState,
+              attribution: attribution
             })
           });
         } catch (err) {
@@ -418,17 +423,29 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (btnSubmitWA) {
       btnSubmitWA.addEventListener('click', () => {
-        const text = encodeURIComponent(
-          `Hi UpGreat World Team!\n\nI just built a Campaign Brief on your website:\n` +
-          `• Brand: ${plannerState.contact.company}\n` +
-          `• Contact: ${plannerState.contact.name} (${plannerState.contact.phone})\n` +
-          `• Objective: ${plannerState.objective}\n` +
-          `• Target Cities: ${plannerState.cities.join(', ') || 'Pan-India'}\n` +
-          `• Duration: ${plannerState.duration}\n` +
-          `• Budget: ${plannerState.budget}\n\n` +
-          `Please provide our verified media plan within 1 business day!`
-        );
-        window.open(`https://wa.me/919891296555?text=${text}`, '_blank');
+        if (window.UpGreatAttribution) {
+          const waUrl = window.UpGreatAttribution.buildWhatsAppUrl('Campaign Planner Brief', {
+            Brand: plannerState.contact.company,
+            Contact: `${plannerState.contact.name} (${plannerState.contact.phone})`,
+            Objective: plannerState.objective,
+            Cities: plannerState.cities.join(', ') || 'Pan-India',
+            Duration: plannerState.duration,
+            Budget: plannerState.budget
+          });
+          window.open(waUrl, '_blank');
+        } else {
+          const text = encodeURIComponent(
+            `Hi UpGreat World Team!\n\nI just built a Campaign Brief on your website:\n` +
+            `• Brand: ${plannerState.contact.company}\n` +
+            `• Contact: ${plannerState.contact.name} (${plannerState.contact.phone})\n` +
+            `• Objective: ${plannerState.objective}\n` +
+            `• Target Cities: ${plannerState.cities.join(', ') || 'Pan-India'}\n` +
+            `• Duration: ${plannerState.duration}\n` +
+            `• Budget: ${plannerState.budget}\n\n` +
+            `Please provide our verified media plan within 1 business day!`
+          );
+          window.open(`https://wa.me/919891296555?text=${text}`, '_blank');
+        }
       });
     }
 
