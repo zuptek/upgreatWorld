@@ -178,9 +178,17 @@ def generate_page(head, header, footer, filename, title, content, description=''
         '<link rel="canonical" href="https://upgreatworld.com/">',
         f'<link rel="canonical" href="https://upgreatworld.com/{filename}">')
 
+    extra_scripts = ""
+    if filename == 'campaign.html':
+        extra_scripts = '<script src="js/campaign-planner.js" defer></script>\n'
+    elif filename == 'cities.html':
+        extra_scripts = '<script src="js/cities-directory.js" defer></script>\n'
+    elif filename == 'case-studies.html':
+        extra_scripts = '<script src="js/case-studies-renderer.js" defer></script>\n'
+
     write_file(filename,
                page_head + header + '\n' + content + '\n' + footer + '\n'
-               + comps_scripts() + '\n</body>\n</html>\n')
+               + comps_scripts() + '\n' + extra_scripts + '</body>\n</html>\n')
     print(f'Generated {filename}')
 
 
@@ -326,6 +334,10 @@ def generate_content():
       <p style="color:var(--green); font-weight: 500; font-family:var(--mono); margin-top: 16px;">300% ROI | Sold Out Phase 1</p>
     </div>
   </div>
+  <div style="margin-top: 3rem;">
+    <span class="sec-eyebrow" style="display:block; text-align:center; margin-bottom:1rem;">Verified Proof & Detail Breakdowns</span>
+    <div id="caseStudiesContainer"></div>
+  </div>
 </section>
 """
     generate('case-studies.html', 'Case Studies | UpGreat World', cases_content,
@@ -456,6 +468,33 @@ def generate_content():
       <p style="margin-bottom: 0; color: var(--ink-2); font-size: 15px;">{markdown_bold(faq['a'])}</p>
     </div>\n"""
                 body_html += """  </div>
+</section>
+"""
+
+            if filename == 'campaign.html':
+                body_html = """
+<section class="inner-hero" style="background: linear-gradient(rgba(21, 21, 15, 0.7), rgba(21, 21, 15, 0.7)), url('images/urban-cityscape.jpg'); background-size: cover; background-position: center; color: #fff;">
+  <div class="wrap">
+    <span class="sec-eyebrow reveal" style="color: rgba(255,255,255,0.75);">Campaign Builder</span>
+    <h1 class="reveal" data-d="1" style="color: #fff;">Build & Plan Your Campaign</h1>
+    <p class="reveal" data-d="2" style="color: rgba(255,255,255,0.9); max-width: 760px;">Select your campaign objectives, cities, target budget, and duration. Get an instant indicative media mix allocation and a verified media plan within 1 business day.</p>
+  </div>
+</section>
+<section class="inner-content wrap">
+  <div id="campaignPlanner"></div>
+</section>
+"""
+            elif filename == 'cities.html':
+                body_html = """
+<section class="inner-hero" style="background: linear-gradient(rgba(21, 21, 15, 0.7), rgba(21, 21, 15, 0.7)), url('images/urban-cityscape.jpg'); background-size: cover; background-position: center; color: #fff;">
+  <div class="wrap">
+    <span class="sec-eyebrow reveal" style="color: rgba(255,255,255,0.75);">Coverage Directory</span>
+    <h1 class="reveal" data-d="1" style="color: #fff;">Cities & Representative Inventory Directory</h1>
+    <p class="reveal" data-d="2" style="color: rgba(255,255,255,0.9); max-width: 760px;">Filter through 20+ cities, key catchments, and OOH/DOOH media formats across India to request specific site quotes.</p>
+  </div>
+</section>
+<section class="inner-content wrap">
+  <div id="citiesDirectory"></div>
 </section>
 """
 
