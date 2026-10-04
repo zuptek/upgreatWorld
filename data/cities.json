@@ -1,0 +1,122 @@
+[
+  {
+    "id": "delhi-ncr",
+    "name": "Delhi NCR",
+    "region": "North India",
+    "totalSites": 1240,
+    "highlights": "Cyber Hub, Connaught Place, DND Flyway, IGI Airport Metro Express",
+    "formats": {
+      "outdoor": 420,
+      "transit": 280,
+      "dooh": 190,
+      "mall": 120,
+      "hyperlocal": 230
+    },
+    "keyCatchments": ["Gurugram Cyber City", "Noida Expressway", "Connaught Place Inner Circle", "South Delhi High Streets"]
+  },
+  {
+    "id": "mumbai",
+    "name": "Mumbai",
+    "region": "West India",
+    "totalSites": 1150,
+    "highlights": "Western Express Highway, Bandra Kurla Complex (BKC), Local Train Network, Airport Corridors",
+    "formats": {
+      "outdoor": 390,
+      "transit": 310,
+      "dooh": 180,
+      "mall": 110,
+      "hyperlocal": 160
+    },
+    "keyCatchments": ["BKC Business District", "WEH Bandra Flyover", "Lower Parel High Street Phoenix", "Andheri Metro Corridor"]
+  },
+  {
+    "id": "bengaluru",
+    "name": "Bengaluru",
+    "region": "South India",
+    "totalSites": 980,
+    "highlights": "Outer Ring Road (ORR), Indiranagar 100ft Road, MG Road, Electronic City Tollway",
+    "formats": {
+      "outdoor": 340,
+      "transit": 220,
+      "dooh": 160,
+      "mall": 90,
+      "hyperlocal": 170
+    },
+    "keyCatchments": ["ORR Tech Corridor", "Indiranagar High Street", "Koramangala 80ft Road", "Hebbal Flyover"]
+  },
+  {
+    "id": "hyderabad",
+    "name": "Hyderabad",
+    "region": "South India",
+    "totalSites": 850,
+    "highlights": "HITEC City, Gachibowli Flyover, Jubilee Hills Checkpost, Rajiv Gandhi Int'l Airport Route",
+    "formats": {
+      "outdoor": 310,
+      "transit": 190,
+      "dooh": 140,
+      "mall": 80,
+      "hyperlocal": 130
+    },
+    "keyCatchments": ["HITEC City IT Hub", "Jubilee Hills Road No. 36", "Gachibowli Financial District", "Begumpet Corridor"]
+  },
+  {
+    "id": "pune",
+    "name": "Pune",
+    "region": "West India",
+    "totalSites": 720,
+    "highlights": "Hinjawadi IT Park, Baner High Street, Viman Nagar, Pune Metro Network",
+    "formats": {
+      "outdoor": 260,
+      "transit": 160,
+      "dooh": 110,
+      "mall": 70,
+      "hyperlocal": 120
+    },
+    "keyCatchments": ["Hinjawadi Phase 1", "Baner Balewadi High Street", "Viman Nagar Phoenix Corridor", "FC Road"]
+  },
+  {
+    "id": "chennai",
+    "name": "Chennai",
+    "region": "South India",
+    "totalSites": 680,
+    "highlights": "OMR IT Corridor, Anna Salai, T. Nagar Shopping Hub, Metro Rail Pillars",
+    "formats": {
+      "outdoor": 250,
+      "transit": 150,
+      "dooh": 90,
+      "mall": 60,
+      "hyperlocal": 130
+    },
+    "keyCatchments": ["OMR IT Expressway", "Anna Salai Arterial Road", "T. Nagar Shopping Zone", "Airport Radial Road"]
+  },
+  {
+    "id": "kolkata",
+    "name": "Kolkata",
+    "region": "East India",
+    "totalSites": 610,
+    "highlights": "Salt Lake Sector V, EM Bypass, Park Street, Metro Railway Network",
+    "formats": {
+      "outdoor": 220,
+      "transit": 140,
+      "dooh": 80,
+      "mall": 50,
+      "hyperlocal": 120
+    },
+    "keyCatchments": ["Salt Lake Sector V Tech Hub", "EM Bypass Stretch", "Park Street High Street", "New Town Major Arterial"]
+  },
+  {
+    "id": "ahmedabad",
+    "name": "Ahmedabad",
+    "region": "West India",
+    "totalSites": 590,
+    "highlights": "SG Highway, CG Road, GIFT City Corridor, BRTS Transit Network",
+    "formats": {
+      "outdoor": 210,
+      "transit": 130,
+      "dooh": 90,
+      "mall": 50,
+      "hyperlocal": 110
+    },
+    "keyCatchments": ["SG Highway Stretch", "GIFT City Access Road", "Prahlad Nagar Corporate Road", "CG Road"]
+  }
+]

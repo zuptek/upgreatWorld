@@ -1,0 +1,62 @@
+[
+  {
+    "id": "nova-realty-launch",
+    "client": "Nova Realty Group",
+    "sector": "Real Estate",
+    "objective": "Launch flagship luxury residential township & drive qualified site visits",
+    "market": "Delhi NCR (Gurugram & Noida)",
+    "duration": "45 Days",
+    "mediaMix": ["Large Format Billboards", "Cyber City DOOH", "Golf Course Road Cantilevers", "Airport Metro Wrap"],
+    "siteCount": 38,
+    "featured": true,
+    "strategy": "High-impact dominance along luxury commuter corridors combined with targeted digital OOH message variations during peak traffic hours.",
+    "execution": "Site-level site selection, geo-verified display logs, and high-frequency corridor saturation.",
+    "proof": "100% geo-tagged & time-stamped visual verification provided within 24 hours of launch.",
+    "results": {
+      "reach": "3.8M Unique Impressions",
+      "footfallIncrease": "+34% Site Office Footfall",
+      "leadGeneration": "420+ Qualified Buyer Inquiries"
+    },
+    "image": "assets/case-realestate.jpg"
+  },
+  {
+    "id": "metromart-retail-blitz",
+    "client": "MetroMart Superstores",
+    "sector": "Retail / FMCG",
+    "objective": "Drive immediate store footfall for 12 new hypermarket grand openings",
+    "market": "Bengaluru & Pune",
+    "duration": "30 Days",
+    "mediaMix": ["Hyperlocal Canopies", "Bus Back Wraps", "Mall Atrium Hangers", "Residential Catchment BTL"],
+    "siteCount": 64,
+    "featured": true,
+    "strategy": "Hyperlocal perimeter targeting within a 3km radius of each store location combined with transit frequency across high-density residential routes.",
+    "execution": "Synchronized multi-format rollout 3 days prior to store opening dates with live activation booths.",
+    "proof": "Site-level physical audit reports and daily photographic proof.",
+    "results": {
+      "reach": "2.9M Catchment Audience",
+      "footfallIncrease": "+48% Opening Weekend Traffic",
+      "salesImpact": "Record opening weekend basket sizes across all 12 locations"
+    },
+    "image": "assets/case-retail.jpg"
+  },
+  {
+    "id": "zencab-ev-launch",
+    "client": "ZenCab Mobility",
+    "sector": "Tech / Transit",
+    "objective": "Establish dominant brand presence for EV fleet launch across major financial hubs",
+    "market": "Mumbai (BKC, Lower Parel & WEH)",
+    "duration": "60 Days",
+    "mediaMix": ["Full EV Cab Wraps", "BKC Digital Screens", "Western Express Highway Unipoles"],
+    "siteCount": 110,
+    "featured": true,
+    "strategy": "High-frequency transit domination targeted at corporate decision-makers during morning and evening rush hours.",
+    "execution": "Mobile fleet tracking combined with high-visibility static corridors for maximum memory recall.",
+    "proof": "GPS transit heatmaps and time-stamped site inspection reports.",
+    "results": {
+      "reach": "5.2M Monthly Commuters",
+      "brandAwareness": "+52% Unaided Brand Recall",
+      "appDownloads": "85,000+ First-month App Installs"
+    },
+    "image": "assets/case-transit.jpg"
+  }
+]

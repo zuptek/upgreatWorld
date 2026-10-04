@@ -1,0 +1,41 @@
+{
+  "company": {
+    "name": "UpGreat World Pvt Ltd",
+    "tagline": "Make Your Brand Unmissable in the Real World.",
+    "description": "India's premier full-spectrum advertising agency for OOH, transit branding, BTL ground marketing, and digital OOH activations."
+  },
+  "stats": {
+    "campaigns": "500+",
+    "campaignsRaw": 500,
+    "cities": "20+",
+    "citiesRaw": 20,
+    "mediaDisciplines": "7",
+    "mediaDisciplinesRaw": 7,
+    "verifiedExecution": "98%",
+    "verifiedExecutionRaw": 98
+  },
+  "contact": {
+    "email": "hello@upgreatworld.com",
+    "phones": [
+      { "city": "Gurugram", "number": "+91 98912 96555", "tel": "+919891296555" },
+      { "city": "Mumbai", "number": "+91 93556 66604", "tel": "+919355666604" }
+    ],
+    "offices": [
+      {
+        "city": "Gurugram Office",
+        "address": "Welldone Tech Park, Sector 48, Gurugram – 122018",
+        "phone": "+91 98912 96555",
+        "tel": "+919891296555"
+      },
+      {
+        "city": "Mumbai Office",
+        "address": "128, Master Mind, Aarey Colony, Goregaon (E), Mumbai, Maharashtra 400065",
+        "phone": "+91 93556 66604",
+        "tel": "+919355666604"
+      }
+    ]
+  },
+  "social": {
+    "whatsapp": "https://wa.me/919891296555"
+  }
+}

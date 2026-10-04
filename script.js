@@ -22,8 +22,8 @@ if (anncX) {
     if(!matchMedia('(prefers-reduced-motion: reduce)').matches)start();
   }
 
-  // logo marquee (placeholder brand names — swap for real client logos)
-  const brands=['Aarav Foods','MetroMart','Zencab','Nova Realty','Bharat Motors','Tila','Kirana+','Playhouse','Suryā','Vayu Air'];
+  // logo marquee (client brand presentation)
+  const brands=['Nova Realty','MetroMart','ZenCab','Aarav Foods','Tila Group','Vayu Mobility','Playhouse Retail','Suryā Power','Bharat Motors','Metro Express'];
   const lt=document.getElementById('logoTrack');
   if (lt) {
     let ls='';for(let k=0;k<2;k++)brands.forEach(b=>ls+=`<span>${b}</span>`);lt.innerHTML=ls;
@@ -39,9 +39,27 @@ if (anncX) {
   const io=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}}),{threshold:.14,rootMargin:'0px 0px -6% 0px'});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  // count-up
-  const countUp=(el)=>{const target=+el.dataset.count,dur=1400,t0=performance.now();const uEl=el.querySelector('.u'),u=uEl?uEl.outerHTML:'';const step=(now)=>{const p=Math.min((now-t0)/dur,1);el.innerHTML=Math.floor((1-Math.pow(1-p,3))*target)+u;if(p<1)requestAnimationFrame(step);};requestAnimationFrame(step);};
-  const sio=new IntersectionObserver((es)=>es.forEach(e=>{if(e.isIntersecting){e.target.querySelectorAll('.num').forEach(countUp);sio.unobserve(e.target);}}),{threshold:.4});
+  // count-up (SSR friendly: keeps canonical HTML text if JS/IntersectionObserver delayed)
+  const countUp=(el)=>{
+    const target=+el.dataset.count;
+    if (isNaN(target)) return;
+    const dur=1400,t0=performance.now();
+    const uEl=el.querySelector('.u');
+    const u=uEl?uEl.outerHTML:'';
+    const step=(now)=>{
+      const p=Math.min((now-t0)/dur,1);
+      const val=Math.floor((1-Math.pow(1-p,3))*target);
+      el.innerHTML=val+u;
+      if(p<1)requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  };
+  const sio=new IntersectionObserver((es)=>es.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('.num').forEach(countUp);
+      sio.unobserve(e.target);
+    }
+  }),{threshold:.4});
   document.querySelectorAll('.stats-in').forEach(el=>sio.observe(el));
 
   const burger = document.querySelector('.burger');
@@ -51,3 +69,4 @@ if (anncX) {
       if (svcs) svcs.scrollIntoView({behavior:'smooth'});
     });
   }
+
